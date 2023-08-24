@@ -24,7 +24,14 @@ public class Controller {
     System.out.println();
     System.out.printf("name: %-14s", name);
     System.out.printf("hourlyWage: %-20.4f", hourlyWage);
-    System.out.printf("hoursWorked: %.3f", hoursWorked);
+    System.out.printf("hoursWorked: %.3f \n", hoursWorked);
+    System.out.println();
+    double weekPay = hourlyWage * hourlyWage;
+    System.out.printf("name: %s ", name);
+    System.out.printf("hourlyWage: \t %-20s \n", hourlyWage);
+    System.out.printf("hoursWorked: \t %-20s \n", hoursWorked);
+    System.out.printf("Employee: %s -> Weekly Pay is: %f" + weekPay, name, weekPay);
+
 
 
 
