@@ -34,12 +34,7 @@ public class Controller {
     System.out.printf("hourlyWage: %7.1f\n", hourlyWage);
     System.out.printf("hoursWorked: %7.2f\n", hoursWorked);
     System.out.printf("Employee: %s -> Weekly Pay is: $%.2f", name, weekPay);
-
-
-
-
   }
-
   public static void yourInfoHeader() {
     System.out.println("================================");
     System.out.println("PROGRAMMER: " + "Replace Text");
@@ -57,9 +52,6 @@ public class Controller {
     System.out.println("work of any other person.");
     System.out.println("================================");
     System.out.println();
-
-
-
   }
 }
 
