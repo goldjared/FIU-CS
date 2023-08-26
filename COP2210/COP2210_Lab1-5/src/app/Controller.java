@@ -10,6 +10,7 @@ public class Controller {
     System.out.println("The value of x = " + x);
     System.out.println("The value of y = " + y);
     System.out.println("The value of z = " + z);
+    System.out.println();
 
     String name = "John Doe";
     double hourlyWage = 35.50;
@@ -17,20 +18,22 @@ public class Controller {
     System.out.printf("name: \t\t\t %-20s \n", name);
     System.out.printf("hourlyWage: \t %-20s \n", hourlyWage);
     System.out.printf("hoursWorked: \t %-20s \n", hoursWorked);
+    System.out.println();
     System.out.printf("name: %s ", name);
     System.out.println();
     System.out.printf("name: %s ", name);
     System.out.printf("hourlyWage: %.4f ", hourlyWage);
     System.out.println();
     System.out.printf("name: %-14s", name);
-    System.out.printf("hourlyWage: %-20.4f", hourlyWage);
+    System.out.printf("hourlyWage: %-19.4f", hourlyWage);
     System.out.printf("hoursWorked: %.3f \n", hoursWorked);
     System.out.println();
-    double weekPay = hourlyWage * hourlyWage;
-    System.out.printf("name: %s ", name);
-    System.out.printf("hourlyWage: \t %-20s \n", hourlyWage);
-    System.out.printf("hoursWorked: \t %-20s \n", hoursWorked);
-    System.out.printf("Employee: %s -> Weekly Pay is: %f" + weekPay, name, weekPay);
+
+    double weekPay = hoursWorked * hourlyWage;
+    System.out.printf("name: %17s\n", name);
+    System.out.printf("hourlyWage: %7.1f\n", hourlyWage);
+    System.out.printf("hoursWorked: %7.2f\n", hoursWorked);
+    System.out.printf("Employee: %s -> Weekly Pay is: $%.2f", name, weekPay);
 
 
 
