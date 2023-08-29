@@ -24,12 +24,11 @@ public class Controller {
     double year4InterestRate = 0.07;
 
     double year1InvestmentValue = initialInvestment * year1InterestRate + initialInvestment;
-    double year2InvestmentValue = initialInvestment * year2InterestRate + year1InvestmentValue;
-    double year3InvestmentValue = initialInvestment * year3InterestRate + initialInvestment;
-    double year4InvestmentValue = initialInvestment * year4InterestRate + initialInvestment;
+    double year2InvestmentValue = year1InvestmentValue * year2InterestRate + year1InvestmentValue;
+    double year3InvestmentValue = year2InvestmentValue * year3InterestRate + year2InvestmentValue;
+    double year4InvestmentValue = year3InvestmentValue * year4InterestRate + year3InvestmentValue;
 
-    double totalInterestEarned = (year1InvestmentValue + year2InvestmentValue + year3InvestmentValue
-            + year4InvestmentValue) - (initialInvestment * 4);
+    double totalInterestEarned = year4InvestmentValue - initialInvestment;
     System.out.println("initialInvestment: " + initialInvestment);
     System.out.println("year1InvestmentValue: " + year1InvestmentValue);
     System.out.println("year2InvestmentValue: " + year2InvestmentValue);
