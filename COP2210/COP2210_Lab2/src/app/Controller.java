@@ -29,12 +29,62 @@ public class Controller {
     double year4InvestmentValue = year3InvestmentValue * year4InterestRate + year3InvestmentValue;
 
     double totalInterestEarned = year4InvestmentValue - initialInvestment;
-    System.out.println("initialInvestment: " + initialInvestment);
-    System.out.println("year1InvestmentValue: " + year1InvestmentValue);
-    System.out.println("year2InvestmentValue: " + year2InvestmentValue);
-    System.out.println("year3InvestmentValue: " + year3InvestmentValue);
-    System.out.println("year4InvestmentValue: " + year4InvestmentValue);
-    System.out.println("totalInterestEarned: " + totalInterestEarned);
+    System.out.println("USING PRINTLN");
+    System.out.println("initialInvestment: \t\t\t" + initialInvestment);
+    System.out.println("year1InvestmentValue: \t\t" + year1InvestmentValue);
+    System.out.println("year2InvestmentValue: \t\t" + year2InvestmentValue);
+    System.out.println("year3InvestmentValue: \t\t" + year3InvestmentValue);
+    System.out.println("year4InvestmentValue: \t\t" + year4InvestmentValue);
+    System.out.println("totalInterestEarned: \t\t" + totalInterestEarned);
+    System.out.println();
+
+    System.out.println("USING PRINTF with format -> right justified, 10 min places,2 decimal places");
+    // is this supposed to be %10.2, and use tabs to make it match? as well as for below USINGPRINTF
+    System.out.printf("initialInvestment: %22.2f \n", initialInvestment);
+    System.out.printf("year1Investment: %24.2f \n", year1InvestmentValue);
+    System.out.printf("year2Investment: %24.2f \n", year2InvestmentValue);
+    System.out.printf("year3Investment: %24.2f \n", year3InvestmentValue);
+    System.out.printf("year4Investment: %24.2f \n", year4InvestmentValue);
+    System.out.printf("totalInterestEarned: %20.2f", totalInterestEarned);
+
+    double circleDiameter = 17.3543;
+    double circleRadius= circleDiameter / 2;
+    double circleCircumference = 2 * Math.PI * circleRadius;
+    double circleArea = Math.PI * Math.pow(circleRadius, 2);
+    printStepHeader(5);
+    System.out.println("USING PRINTF with format -> left justified, 10 min places,4 decimal places");
+    System.out.printf("circleDiameter: \t\t\t\t%-20.4f \n", circleDiameter);
+    System.out.printf("circleRadius: %24.4f \n", circleRadius);
+    System.out.printf("circleCircumference: %24.4f \n", circleCircumference);
+    System.out.printf("circleArea: %24.4f", circleArea);
+
+    double rectangleHeight = 19.4;
+    double rectangleWidth = 34.7;
+    double triangleHeight = 16.4;
+    double triangleBase = 20.1;
+    double rectanglePerimeter = 2 * (rectangleHeight + rectangleWidth);
+    double rectangleArea = rectangleHeight * rectangleWidth;
+    double triangleHypotenuse = Math.sqrt(Math.pow(triangleBase, 2) + Math.pow(triangleHeight, 2));
+    double trianglePerimeter = triangleBase + triangleHeight + triangleHypotenuse;
+    double triangleArea = 0.5 * (triangleBase * triangleHeight);
+    double totalPerimeter = trianglePerimeter + rectanglePerimeter;
+    double totalArea = triangleArea + rectangleArea;
+
+    printStepHeader(6);
+    System.out.println("USING PRINTF with format -> right justified, 8 min places,1 decimal places");
+    System.out.printf("rectangleHeight: %8.1f \n", rectangleHeight);
+    System.out.printf("rectangleWidth: %8.1f \n", rectangleWidth);
+    System.out.printf("triangleHeight: %8.1f \n", triangleHeight);
+    System.out.printf("rectanglePerimeter: %8.1f \n", rectanglePerimeter);
+    System.out.printf("rectangleArea: %8.1f \n", rectangleArea);
+    System.out.printf("triangleHypotenuse: %8.1f \n", triangleHypotenuse);
+    System.out.printf("trianglePerimeter: %8.1f \n", trianglePerimeter);
+    System.out.printf("triangleArea: %8.1f \n", triangleArea);
+    System.out.printf("totalPerimeter: %8.1f \n", totalPerimeter);
+    System.out.printf("totalArea: %8.1f \n", totalArea);
+
+
+
   }
 
   public static void yourInfoHeader() {
@@ -59,8 +109,8 @@ public class Controller {
   public static void printStepHeader(int stepNumber) {
     System.out.println();
     System.out.println();
-    System.out.println("================================");
+    System.out.println("===================================");
     System.out.println("Step: " + stepNumber);
-    System.out.println("================================");
+    System.out.println("===================================");
   }
 }
