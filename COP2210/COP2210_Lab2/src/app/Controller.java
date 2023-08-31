@@ -39,7 +39,7 @@ public class Controller {
     System.out.println();
 
     System.out.println("USING PRINTF with format -> right justified, 10 min places,2 decimal places");
-    // is this supposed to be %10.2, and use tabs to make it match? as well as for below USINGPRINTF
+    // is this supposed to be %-10.2, and use tabs to make it match? as well as for below USINGPRINTF
     System.out.printf("initialInvestment: %22.2f \n", initialInvestment);
     System.out.printf("year1Investment: %24.2f \n", year1InvestmentValue);
     System.out.printf("year2Investment: %24.2f \n", year2InvestmentValue);
@@ -53,10 +53,10 @@ public class Controller {
     double circleArea = Math.PI * Math.pow(circleRadius, 2);
     printStepHeader(5);
     System.out.println("USING PRINTF with format -> left justified, 10 min places,4 decimal places");
-    System.out.printf("circleDiameter: \t\t\t\t%-20.4f \n", circleDiameter);
-    System.out.printf("circleRadius: %24.4f \n", circleRadius);
-    System.out.printf("circleCircumference: %24.4f \n", circleCircumference);
-    System.out.printf("circleArea: %24.4f", circleArea);
+    System.out.printf("circleDiameter: \t\t\t%-10.4f \n", circleDiameter);
+    System.out.printf("circleRadius: \t\t\t\t%-10.4f \n", circleRadius);
+    System.out.printf("circleCircumference: \t\t%-10.4f \n", circleCircumference);
+    System.out.printf("circleArea: \t\t\t\t%-10.4f", circleArea);
 
     double rectangleHeight = 19.4;
     double rectangleWidth = 34.7;
@@ -71,17 +71,29 @@ public class Controller {
     double totalArea = triangleArea + rectangleArea;
 
     printStepHeader(6);
-    System.out.println("USING PRINTF with format -> right justified, 8 min places,1 decimal places");
-    System.out.printf("rectangleHeight: %8.1f \n", rectangleHeight);
-    System.out.printf("rectangleWidth: %8.1f \n", rectangleWidth);
-    System.out.printf("triangleHeight: %8.1f \n", triangleHeight);
-    System.out.printf("rectanglePerimeter: %8.1f \n", rectanglePerimeter);
-    System.out.printf("rectangleArea: %8.1f \n", rectangleArea);
-    System.out.printf("triangleHypotenuse: %8.1f \n", triangleHypotenuse);
-    System.out.printf("trianglePerimeter: %8.1f \n", trianglePerimeter);
-    System.out.printf("triangleArea: %8.1f \n", triangleArea);
-    System.out.printf("totalPerimeter: %8.1f \n", totalPerimeter);
-    System.out.printf("totalArea: %8.1f \n", totalArea);
+//    System.out.println("USING PRINTF with format -> right justified, 8 min places,1 decimal places");
+//    System.out.printf("rectangleHeight: \t\t\t%8.1f \n", rectangleHeight);
+//    System.out.printf("rectangleWidth: \t\t\t%8.1f \n", rectangleWidth);
+//    System.out.printf("triangleHeight: \t\t\t%8.1f \n", triangleHeight);
+//    System.out.printf("rectanglePerimeter: \t\t%8.1f \n", rectanglePerimeter);
+//    System.out.printf("rectangleArea: \t\t\t\t%8.1f \n", rectangleArea);
+//    System.out.printf("triangleHypotenuse: \t\t%8.1f \n", triangleHypotenuse);
+//    System.out.printf("trianglePerimeter: \t\t\t%8.1f \n", trianglePerimeter);
+//    System.out.printf("triangleArea: \t\t\t\t%8.1f \n", triangleArea);
+//    System.out.printf("totalPerimeter: \t\t\t%8.1f \n", totalPerimeter);
+//    System.out.printf("totalArea: \t\t\t\t\t%8.1f \n", totalArea);
+
+    double airflow = 1.253;
+    double x = 1.392;
+    double y = 0.72;
+    double z = 4.2932;
+
+    double temp1 = Math.cos(Math.pow(airflow, 3));
+    double temp2 = Math.pow(Math.E, 6 * x * Math.pow(y, 4));
+//    double temp3 = ;
+//    double temp4 = ;
+//    double temp5 = ;
+//    double temp6 = ;
 
 
 
