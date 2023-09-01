@@ -71,29 +71,45 @@ public class Controller {
     double totalArea = triangleArea + rectangleArea;
 
     printStepHeader(6);
-//    System.out.println("USING PRINTF with format -> right justified, 8 min places,1 decimal places");
-//    System.out.printf("rectangleHeight: \t\t\t%8.1f \n", rectangleHeight);
-//    System.out.printf("rectangleWidth: \t\t\t%8.1f \n", rectangleWidth);
-//    System.out.printf("triangleHeight: \t\t\t%8.1f \n", triangleHeight);
-//    System.out.printf("rectanglePerimeter: \t\t%8.1f \n", rectanglePerimeter);
-//    System.out.printf("rectangleArea: \t\t\t\t%8.1f \n", rectangleArea);
-//    System.out.printf("triangleHypotenuse: \t\t%8.1f \n", triangleHypotenuse);
-//    System.out.printf("trianglePerimeter: \t\t\t%8.1f \n", trianglePerimeter);
-//    System.out.printf("triangleArea: \t\t\t\t%8.1f \n", triangleArea);
-//    System.out.printf("totalPerimeter: \t\t\t%8.1f \n", totalPerimeter);
-//    System.out.printf("totalArea: \t\t\t\t\t%8.1f \n", totalArea);
+    System.out.println("USING PRINTF with format -> right justified, 8 min places,1 decimal places");
+    System.out.printf("rectangleHeight: \t\t\t%8.1f \n", rectangleHeight);
+    System.out.printf("rectangleWidth: \t\t\t%8.1f \n", rectangleWidth);
+    System.out.printf("triangleHeight: \t\t\t%8.1f \n", triangleHeight);
+    System.out.printf("rectanglePerimeter: \t\t%8.1f \n", rectanglePerimeter);
+    System.out.printf("rectangleArea: \t\t\t\t%8.1f \n", rectangleArea);
+    System.out.printf("triangleHypotenuse: \t\t%8.1f \n", triangleHypotenuse);
+    System.out.printf("trianglePerimeter: \t\t\t%8.1f \n", trianglePerimeter);
+    System.out.printf("triangleArea: \t\t\t\t%8.1f \n", triangleArea);
+    System.out.printf("totalPerimeter: \t\t\t%8.1f \n", totalPerimeter);
+    System.out.printf("totalArea: \t\t\t\t\t%8.1f \n", totalArea);
 
-    double airflow = 1.253;
+    double airFlow = 1.253;
     double x = 1.392;
     double y = 0.72;
     double z = 4.2932;
 
-    double temp1 = Math.cos(Math.pow(airflow, 3));
+    double temp1 = Math.cos(Math.pow(airFlow, 3));
     double temp2 = Math.pow(Math.E, 6 * x * Math.pow(y, 4));
-//    double temp3 = ;
-//    double temp4 = ;
-//    double temp5 = ;
-//    double temp6 = ;
+    double temp3 = 2 * Math.sqrt(7 * x * Math.pow(y, 5.23) * z);
+    double temp4 = 1.8 * x * y * z;
+    double temp5 = Math.pow(0.75, Math.pow(2, x * y * z));
+    double temp6 = Math.sqrt(airFlow + x);
+    double boost = temp1 * ((temp2 + temp3) / temp6) + temp4 + temp5;
+
+    printStepHeader(7);
+    System.out.println("USING PRINTF with format -> left justified, 8 min places,6 decimal places");
+    System.out.printf("airFlow: \t\t\t\t%-8.6f\n", airFlow);
+    System.out.printf("x: \t\t\t\t\t\t%-8.6f\n", x);
+    System.out.printf("y: \t\t\t\t\t\t%-8.6f\n", y);
+    System.out.printf("z: \t\t\t\t\t\t%-8.6f\n", z);
+    System.out.printf("temp1: \t\t\t\t\t%-8.6f\n", temp1);
+    System.out.printf("temp2: \t\t\t\t\t%-8.6f\n", temp2);
+    System.out.printf("temp3: \t\t\t\t\t%-8.6f\n", temp3);
+    System.out.printf("temp4: \t\t\t\t\t%-8.6f\n", temp4);
+    System.out.printf("temp5: \t\t\t\t\t%-8.6f\n", temp5);
+    System.out.printf("temp6: \t\t\t\t\t%-8.6f\n", temp6);
+    System.out.printf("boost: \t\t\t\t\t%-8.6f", boost);
+    System.out.println();
 
 
 
