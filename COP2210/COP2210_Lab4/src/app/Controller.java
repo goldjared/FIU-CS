@@ -16,6 +16,8 @@ public class Controller {
 
     Car c3 = new Car();
     c3.displayInfo();
+
+    Car.classDisplayInfo();
   }
 
   public static void yourInfoHeader() {

@@ -35,11 +35,15 @@ public class Car {
   }
 
   public Car(String color, int numberOfDoors) {
-
+    this();
+    this.color = color;
+    this.numberOfDoors = numberOfDoors;
   }
 
   public Car(String color, int numberOfDoors, double price, int mileage) {
-
+  this(color, numberOfDoors);
+  this.price = price;
+  this.mileage = mileage;
   }
 
   public static int getVehicleCounter() {
