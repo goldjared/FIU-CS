@@ -51,7 +51,7 @@ public class Car {
   }
 
   public static void setVehicleCounter(int vehicleCounter) {
-
+  Car.vehicleCounter = vehicleCounter;
   }
 
   public String getCarID() {
@@ -86,21 +86,21 @@ public class Car {
     System.out.println("-------------------");
     System.out.println("Car Class Info");
     System.out.println("-------------------");
-    System.out.println("vehicleCounter: \t\t\t" + vehicleCounter);
-    System.out.println("CAR_FACTORY_ID: \t\t\t" + CAR_FACTORY_ID);
+    System.out.println("vehicleCounter: \t\t" + vehicleCounter);
+    System.out.println("CAR_FACTORY_ID: \t\t" + CAR_FACTORY_ID);
   }
 
   public void displayInfo() {
     System.out.println("-------------------");
     System.out.println("Car Info");
     System.out.println("-------------------");
-    System.out.println("carID: \t\t\t " + carID);
-    System.out.println("Factory: \t\t\t " + factory);
-    System.out.println("NumberOfDoors: \t\t\t " + numberOfDoors);
-    System.out.println("Color: \t\t\t " + color);
-    System.out.println("Mileage: \t\t\t " + mileage);
-    System.out.printf("Price: \t\t\t %.2f \n", price);
-    System.out.println("doYouLikeIt: \t\t\t " + doYouLikeIt);
+    System.out.println("carID: \t\t\t\t\t" + carID);
+    System.out.println("Factory: \t\t\t\t" + factory);
+    System.out.println("NumberOfDoors: \t\t\t" + numberOfDoors);
+    System.out.println("Color: \t\t\t\t\t" + color);
+    System.out.println("Mileage: \t\t\t\t" + mileage);
+    System.out.printf("Price: \t\t\t\t\t%.2f\n", price);
+    System.out.println("Do you like it: \t\t" + doYouLikeIt);
 
   }
 
