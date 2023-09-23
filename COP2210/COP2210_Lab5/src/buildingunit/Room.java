@@ -40,9 +40,9 @@ public class Room {
     this.temperature = temperature;
   }
   public void roomStats(String tabs) {
-    System.out.println("=============================");
+    System.out.println(tabs + "=============================");
     System.out.println(tabs + "Room Stats: " + type);
-    System.out.println("=============================");
+    System.out.println(tabs + "=============================");
     System.out.println(tabs + "Type: \t\t\t " + type);
     System.out.println(tabs + "Color: \t\t\t " + color);
     System.out.printf(tabs + "Temperature: %9.2f\n", temperature);
