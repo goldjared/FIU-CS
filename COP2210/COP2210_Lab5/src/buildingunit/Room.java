@@ -46,9 +46,13 @@ public class Room {
     System.out.println(tabs + "Type: \t\t\t " + type);
     System.out.println(tabs + "Color: \t\t\t " + color);
     System.out.printf(tabs + "Temperature: %9.2f\n", temperature);
-    System.out.printf(tabs + "Length: \t\t%-4.2f\n", length);
-    System.out.printf(tabs + "Width: %.2f\n", width);
-    System.out.printf(tabs + "Square feet: %9.2f", calculateSquareFeet());
+    System.out.printf(tabs + "Length: \t\t%" + (length < 10 ? "5" : "6") + ".2f\n", length);
+    System.out.printf(tabs + "Width: \t\t\t%" + (width < 10 ? "5" : "6") + ".2f\n", width);
+    System.out.printf(tabs + "Square feet: %" + (calculateSquareFeet() > 99.9 ? "10" : "9") + ".2f\n", calculateSquareFeet());
+//    System.out.printf(tabs + "Temperature: %9.2f\n", temperature);
+//    System.out.printf(tabs + "Length: %14.2f\n", length);
+//    System.out.printf(tabs + "Width: %15.2f\n", width);
+//    System.out.printf(tabs + "Square feet: %10.2f", calculateSquareFeet());
     System.out.println();
   }
 
