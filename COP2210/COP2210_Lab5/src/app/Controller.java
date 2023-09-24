@@ -38,8 +38,10 @@ public class Controller {
     System.out.println();
 
     AC.changeTemperatureDown(livingRoom.getTemperature(), 5);
-    myHouse.getKitchen().roomStats("");
+    livingRoom.roomStats("");
 
+    AC.changeTemperatureDown(myHouse.getKitchen().getTemperature(), 3);
+    myHouse.getKitchen().roomStats("");
     AC.acStats();
 
     System.out.println("--------------------------------------------------");
@@ -47,7 +49,12 @@ public class Controller {
     System.out.println("--------------------------------------------------");
     System.out.println();
 
-//    AC
+    AC.changeTemperatureDown(livingRoom, 5);
+    livingRoom.roomStats("");
+
+    AC.changeTemperatureDown(myHouse.getKitchen(), 3);
+    myHouse.getKitchen().roomStats("");
+    AC.acStats();
   }
 
   public static void yourInfoHeader() {
