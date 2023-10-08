@@ -32,7 +32,6 @@ public class App {
       System.out.println("Cook time is under 7 minutes");
     }
 
-  }
     System.out.println("");
     System.out.println("-----------------------------");
     System.out.println("Step: 4");
@@ -50,13 +49,13 @@ public class App {
     int userInput = sc.nextInt();
 
     if(userInput == 1) {
-    System.out.println("\nYou are in the COP2210");
-  } else if (userInput == 2) {
-    System.out.println("\nYou are in the COP3337");
+      System.out.println("\nYou are in the COP2210");
+    } else if (userInput == 2) {
+      System.out.println("\nYou are in the COP3337");
 
-  } else {
-    System.out.println("\nYou enter a wrong option");
-  }
+    } else {
+      System.out.println("\nYou enter a wrong option");
+    }
     System.out.println("");
     System.out.println("-----------------------------");
     System.out.println("Step: 5");
@@ -67,26 +66,61 @@ public class App {
     String stateName2 = "Colorado";
 
     if(stateName1.equals("Florida")){
-    System.out.println("You are in Florida");
-  }
+      System.out.println("You are in Florida");
+    }
     System.out.println("");
 
     if(stateName1.equals(stateName2)){
-    System.out.println("The two states do not have the same name");
-  }
+      System.out.println("The two states do not have the same name");
+    }
 
     if(stateName1.equals("Florida") && stateName2.equals("Colorado")) {
-    System.out.println("StateName1 is Florida");
-    System.out.println("StateName2 is Colorado");
-  } else {
-    System.out.println("You have the wrong state names");
-  }
+      System.out.println("StateName1 is Florida");
+      System.out.println("StateName2 is Colorado");
+    } else {
+      System.out.println("You have the wrong state names");
+    }
     System.out.println("");
     System.out.println("-----------------------------");
     System.out.println("Step: 6");
     System.out.println("-----------------------------");
     System.out.println("");
 
-    System.out.print("Enter your name:")
-  // STEP 6 LEFT OFF
+    System.out.print("Enter your name:");
+    // STEP 6 LEFT OFF
+    String readingUserStringInput = sc.next();
+    System.out.println("Your name is: " + readingUserStringInput);
+
+    System.out.println("");
+    System.out.println("-----------------------------");
+    System.out.println("Step: 7");
+    System.out.println("-----------------------------");
+    System.out.println("");
+
+    System.out.print("Enter a number between 0-100: ");
+    Scanner userInputReader = new Scanner(System.in);
+    int someInput = userInputReader.nextInt();
+
+    if(someInput == 50) {
+      System.out.println("You enter 50");
+    } else if(someInput<=50) {
+      System.out.println("You enter a number less than or equal to 50");
+    } else if(someInput<=75) {
+      System.out.println("You enter a number greater than 50 but less than or equal to 75");
+    } else if(someInput<=100) {
+      System.out.println("You enter a number greater than 75 but less than or equal to 100");
+    } else {
+      System.out.println("You entered a value outside the range");
+    }
+
+    String str1 = "Hello";
+    String str2 = "Bye";
+
+    if(str1.equals(str2)) {
+      System.out.println("String text of str1 and str2 are the same");
+    }
+
+  }
+
+
 }
