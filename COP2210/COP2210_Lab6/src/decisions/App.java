@@ -1,4 +1,8 @@
+
+
 package decisions;
+
+import java.util.Scanner;
 
 public class App {
   public static void main(String[] args) {
@@ -86,8 +90,7 @@ public class App {
     System.out.println("-----------------------------");
     System.out.println("");
 
-    System.out.print("Enter your name:");
-    // STEP 6 LEFT OFF
+    System.out.print("Enter your name: ");
     String readingUserStringInput = sc.next();
     System.out.println("Your name is: " + readingUserStringInput);
 
@@ -119,6 +122,63 @@ public class App {
     if(str1.equals(str2)) {
       System.out.println("String text of str1 and str2 are the same");
     }
+
+    System.out.println("");
+    System.out.println("-----------------------------");
+    System.out.println("Step: 8");
+    System.out.println("-----------------------------");
+    System.out.println("");
+
+    System.out.print("Enter the engine fuel-mixture value: ");
+    Scanner aScanner = new Scanner(System.in);
+    double mixture = aScanner.nextDouble();
+    if(mixture >= 23.5) {
+      System.out.println("Decrease Fuel Mixture by 0.30");
+    } else if(mixture>=23.0) {
+      System.out.println("Decrease Fuel Mixture by 0.10");
+    } else if(mixture>=22.5) {
+      System.out.println("Decrease Fuel Mixture by 0.05");
+    } else if(mixture>=21.0) {
+      System.out.println("Decrease Fuel Mixture is OK");
+    } else if(mixture>=20.0) {
+      System.out.println("Increase Fuel Mixture by 0.10");
+    } else {
+      System.out.println("Sensor needs to be checked");
+    }
+
+    System.out.println("");
+    System.out.println("-----------------------------");
+    System.out.println("Step: 9");
+    System.out.println("-----------------------------");
+    System.out.println("");
+
+    Scanner anotherScanner = new Scanner(System.in);
+    System.out.print("Enter the gear your in: ");
+    int gear = anotherScanner.nextInt();
+
+    System.out.print("\nEnter the rpm of the engine: ");
+    int rpm = anotherScanner.nextInt();
+
+    System.out.print("\nAre the brakes on (y/n): ");
+    String brakes = anotherScanner.next();
+
+    System.out.println("Gear = " + gear);
+    System.out.println("RPM = " + rpm);
+    System.out.println("Brakes = " + brakes);
+
+    if(gear == 6 && rpm >= 12000) {
+      if(brakes.equals("y")) {
+        System.out.println("Please get off the brake they are getting hot");
+      }
+      System.out.println("You are moving :)");
+    } else {
+      if(brakes.equals("y")) {
+        System.out.println("Please get off the brake");
+      } else {
+        System.out.println("OK");
+      }
+    }
+
 
   }
 
