@@ -54,7 +54,7 @@ public class Controller {
     printStepHeader(6);
     for (int row = 0; row<10; row++) {
       for(int col=0; col<15; col++) {
-        System.out.print("x\t");
+        System.out.print("X\t");
       }
       System.out.println();
     }
@@ -64,8 +64,8 @@ public class Controller {
       for(int col=0; col<10; col++) {
         if(row%2 == 0) {
           String xOrO = col%2 == 0
-                  ? "x"
-                  : "o";
+                  ? "X"
+                  : "O";
           System.out.print(xOrO + " \t");
         } else {
           System.out.print("o \t");
@@ -79,8 +79,8 @@ public class Controller {
     for (int row = 0; row<10; row++) {
       for(int col=0; col<10; col++) {
           String xOrO = row == col
-                  ? "x"
-                  : "o";
+                  ? "X"
+                  : "O";
           System.out.print(xOrO + " \t");
       }
       System.out.println();
@@ -90,13 +90,39 @@ public class Controller {
     for (int row = 0; row<10; row++) {
       for(int col=0; col<10; col++) {
         String xOrO = row == col || col == 9 - row
-                ? "x"
-                : "o";
+                ? "X"
+                : "O";
         System.out.print(xOrO + " \t");
       }
       System.out.println();
     }
 
+    printStepHeader(10);
+    for (int row = 0; row<10; row++) {
+      for(int col=0; col<10; col++) {
+        String xOrO = col>=5 && 2<=row && row<=7
+                ? "X"
+                : "O";
+        System.out.print(xOrO + " \t");
+      }
+      System.out.println();
+    }
+
+    printStepHeader(11);
+    for (int row = 0; row<10; row++) {
+      for(int col=0; col<10; col++) {
+       if(row%2 == 0) {
+         System.out.print("X \t");
+       } else {
+         if(col == 2 || col == 5 || col == 8) {
+           System.out.print("X \t");
+         } else {
+           System.out.print("O \t");
+         }
+       }
+      }
+      System.out.println();
+    }
 
   }
   public static void yourInfoHeader() {
