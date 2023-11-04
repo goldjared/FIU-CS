@@ -1,6 +1,7 @@
 package app;
 
 import toolkit.ArrayProcessor;
+import vehicle.Car;
 
 import java.util.Random;
 
@@ -10,10 +11,7 @@ public class Controller {
   public static void main(String[] args) {
     yourInfoHeader();
 
-int[] arr2 = createArrayWithInts(10,-100,1000);
-int[] arr3 = createArrayWithInts(10,-100,1000);
-int[] arr4 = createArrayWithInts(10,-100,1000);
-int[] arr5 = createArrayWithInts(10,-100,1000);
+
 for(int i = 0; i<5;i++) {
 
   int[] arr1 = ArrayProcessor.createArrayWithInts(10,-100,1000);
@@ -21,6 +19,12 @@ for(int i = 0; i<5;i++) {
   System.out.println("Array Average: " + ArrayProcessor.averageOfIntArray(arr1));
   System.out.println();
     }
+
+  Car[] cars = new Car[15];
+  for(int i = 0; i < cars.length; i++) {
+    cars[i] = new Car();
+    cars[i].displayInfo();
+  }
 
   }
 

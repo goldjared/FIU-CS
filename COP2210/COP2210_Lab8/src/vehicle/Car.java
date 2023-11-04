@@ -1,5 +1,7 @@
 package vehicle;
 
+import java.util.Random;
+
 public class Car {
   private static final String VIN = "VIN-";
   private static int carID = 1000;
@@ -16,7 +18,11 @@ public class Car {
 
 
   public Car() {
-
+    Random rndGen = new Random();
+    this.color = colors[rndGen.nextInt(colors.length)];
+    this.mpg = rndGen.nextInt(maxMPG-minMPG + 1) + minMPG;
+    this.price = rndGen.nextInt(maxPrice-minPrice + 1) + minPrice;
+    this.vin = VIN + carID++;
   }
 
   public static String[] getColors() {
@@ -66,7 +72,7 @@ public class Car {
   }
 
   public void displayInfo() {
-
+    System.out.printf("VIN: %s\tColor: %-8s Price: %.2f\t\tMPG: %.2f\n", getVin(), getColor(), getPrice(), getMPG());
   }
 
 }
