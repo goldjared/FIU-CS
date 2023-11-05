@@ -80,10 +80,15 @@ public class ArrayProcessor {
     minValueCarObj.displayInfo();
     System.out.println();
   }
-//
-//  public static double averageOfCarPrices(Car[] cars) {
-//
-//  }
+
+  public static double averageOfCarPrices(Car[] cars) {
+    double priceHolder = cars[0].getPrice();
+    for(int i = 1; i < cars.length; i++) {
+      priceHolder += cars[i].getPrice();
+      }
+    return priceHolder / cars.length;
+
+  }
 
 
 }
