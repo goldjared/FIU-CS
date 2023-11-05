@@ -1,5 +1,7 @@
 package toolkit;
 
+import vehicle.Car;
+
 import java.util.Random;
 
 public class ArrayProcessor {
@@ -48,13 +50,36 @@ public class ArrayProcessor {
   return sum / array.length;
   }
 
-//  public static void findCarWithBestMPG(Car[] cars) {
-//
-//  }
-//
-//  public static void findCarWithWorstMPG(Car[] cars) {
-//
-//  }
+  public static void findCarWithBestMPG(Car[] cars) {
+    Car maxValueCarObj = cars[0];
+  for(int i = 1; i < cars.length; i++) {
+    if(maxValueCarObj.getMPG() < cars[i].getMPG()) {
+      maxValueCarObj = cars[i];
+    }
+  }
+
+    System.out.println("=====================================");
+    System.out.println("findCarWithBestMPG");
+    System.out.println("=====================================");
+    maxValueCarObj.displayInfo();
+    System.out.println();
+  }
+
+  public static void findCarWithWorstMPG(Car[] cars) {
+
+    Car minValueCarObj = cars[0];
+    for(int i = 1; i < cars.length; i++) {
+      if(minValueCarObj.getMPG() > cars[i].getMPG()) {
+        minValueCarObj = cars[i];
+      }
+    }
+
+    System.out.println("=====================================");
+    System.out.println("findCarWithWorstMPG");
+    System.out.println("=====================================");
+    minValueCarObj.displayInfo();
+    System.out.println();
+  }
 //
 //  public static double averageOfCarPrices(Car[] cars) {
 //

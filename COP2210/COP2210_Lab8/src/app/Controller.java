@@ -25,6 +25,10 @@ for(int i = 0; i<5;i++) {
     cars[i] = new Car();
     cars[i].displayInfo();
   }
+    System.out.println();
+
+  ArrayProcessor.findCarWithBestMPG(cars);
+  ArrayProcessor.findCarWithWorstMPG(cars);
 
   }
 

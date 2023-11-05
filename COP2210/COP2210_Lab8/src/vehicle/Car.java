@@ -20,7 +20,7 @@ public class Car {
   public Car() {
     Random rndGen = new Random();
     this.color = colors[rndGen.nextInt(colors.length)];
-    this.mpg = rndGen.nextInt(maxMPG-minMPG + 1) + minMPG;
+    this.mpg = rndGen.nextDouble(maxMPG-minMPG + 1) + minMPG;
     this.price = rndGen.nextInt(maxPrice-minPrice + 1) + minPrice;
     this.vin = VIN + carID++;
   }
