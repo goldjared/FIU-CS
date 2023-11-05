@@ -53,6 +53,13 @@ for(int i = 0; i<5;i++) {
       System.out.println();
 
     }
+    System.out.println();
+
+
+    System.out.println("=====================================");
+    System.out.println("ArrayProcessor Events");
+    System.out.println("=====================================");
+    System.out.println("ArrayProcessor Events: " + ArrayProcessor.getEventsProcessed());
   }
 
 
