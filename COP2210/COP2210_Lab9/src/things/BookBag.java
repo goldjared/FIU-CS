@@ -6,10 +6,11 @@ import java.util.ArrayList;
 
 public class BookBag {
   private Person owner;
-  private ArrayList<String> items;
+  private ArrayList<Object> items;
 
-  public BookBag(Owner person) {
+  public BookBag(Person person) {
     this.items = new ArrayList<>();
+    this.owner = person;
   }
 
   public Person getOwner() {
@@ -20,7 +21,7 @@ public class BookBag {
     this.owner = owner;
   }
 
-  public ArrayList<String> getItems() {
+  public ArrayList<Object> getItems() {
     return items;
   }
 
@@ -29,6 +30,14 @@ public class BookBag {
   }
 
   public void displayItems() {
-
+    for(Object item: items) {
+      if(item instanceof Phone) {
+        ((Phone) item).displayInfo();
+      } else if(item instanceof  Book) {
+        ((Book) item).displayInfo();
+      } else if(item instanceof PencilBag) {
+        ((PencilBag) item).displayContains();
+      }
+    }
   }
 }

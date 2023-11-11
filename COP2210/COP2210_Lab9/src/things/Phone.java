@@ -22,6 +22,6 @@ public class Phone {
   }
 
   public void displayInfo() {
-    System.out.printf("Type->Phone-> \t\t%s \t\t\tPrice: %f", getNumber(), getPrice());
+    System.out.printf("Type->Phone-> \t\t%-30s Price: %7.2f\n", getNumber(), getPrice());
   }
 }

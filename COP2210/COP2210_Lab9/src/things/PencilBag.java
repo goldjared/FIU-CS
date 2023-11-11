@@ -14,6 +14,8 @@ public class PencilBag {
   }
 
   public void displayContains() {
-
+  for(Pen item:pens) {
+    item.displayInfo();
+  }
   }
 }

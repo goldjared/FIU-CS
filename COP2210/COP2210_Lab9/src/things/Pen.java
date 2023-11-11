@@ -4,7 +4,8 @@ public class Pen {
   private double price;
 
   public Pen(String color, double price) {
-
+  this.color = color;
+  this.price = price;
   }
 
   public String getColor() {
@@ -16,6 +17,6 @@ public class Pen {
   }
 
   public void displayInfo() {
-    System.out.printf("Type->Pen-> \t\tColor: %s \t\t\tPrice: %f", getColor(), getPrice());
+    System.out.printf("Type->Pen-> \t\tColor: %-23s Price: %7.2f\n", getColor(), getPrice());
   }
 }

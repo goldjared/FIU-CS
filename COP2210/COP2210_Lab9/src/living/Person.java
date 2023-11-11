@@ -1,16 +1,16 @@
 package living;
 
-import things.BookBag;
+import things.*;
 
 public class Person {
   private String firstName;
   private String lastName;
-  private BookBag bookBag = new BookBag(null);
+  private BookBag bookBag;
 
   public Person (String firstName, String lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.bookBag.setOwner(this);
+//    this.bookBag.setOwner(this);
 
   }
 
@@ -38,7 +38,21 @@ public class Person {
   }
 
   public double totalPriceOfPossessions() {
-    //
+    double totalPrice = 0;
+//    System.out.println(getBookBag().getItems().get(0) + "HERE");
+
+
+    for(Object item: getBookBag().getItems()) {
+      if(item instanceof Phone) {
+        totalPrice+=((Phone) item).getPrice();
+      } else if(item instanceof Book) {
+        totalPrice+=((Book) item).getPrice();
+      } else if(item instanceof Pen) {
+        totalPrice+=((Pen) item).getPrice();
+      }
+    }
+
+    return totalPrice;
   }
 
 
