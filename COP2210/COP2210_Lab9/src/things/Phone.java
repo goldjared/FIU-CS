@@ -1,12 +1,16 @@
 package things;
 
+import java.util.Random;
+
 public class Phone {
 
   private String number;
   private double price;
 
   public Phone(String number) {
-
+  Random rndGen = new Random();
+  this.price = rndGen.nextDouble(1451-150) + 150;
+  this.number = number;
   }
 
   public String getNumber() {
@@ -18,6 +22,6 @@ public class Phone {
   }
 
   public void displayInfo() {
-
+    System.out.printf("Type->Phone-> \t\t%s \t\t\tPrice: %f", getNumber(), getPrice());
   }
 }

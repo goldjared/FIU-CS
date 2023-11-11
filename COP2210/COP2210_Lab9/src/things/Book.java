@@ -15,7 +15,8 @@ public class Book {
     return price;
   }
 
-  public void displayInfo() {
+    public void displayInfo() {
+      System.out.printf("Type->Book-> \t\tSubject: %s \t\t\tPrice: %f", getSubject(), getPrice());
+    }
 
-  }
 }

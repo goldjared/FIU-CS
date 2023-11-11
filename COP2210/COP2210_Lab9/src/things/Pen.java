@@ -16,6 +16,6 @@ public class Pen {
   }
 
   public void displayInfo() {
-
+    System.out.printf("Type->Pen-> \t\tColor: %s \t\t\tPrice: %f", getColor(), getPrice());
   }
 }

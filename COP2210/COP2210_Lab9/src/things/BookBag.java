@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 public class BookBag {
   private Person owner;
-  private ArrayList<String> items = new ArrayList<>();
+  private ArrayList<String> items;
 
   public BookBag(Owner person) {
-
+    this.items = new ArrayList<>();
   }
 
   public Person getOwner() {
