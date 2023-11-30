@@ -19,6 +19,6 @@ public class Car {
   public int getNumberOfDoors() { return numberOfDoors;}
   public void setNumberOfDoors(int numberOfDoors) {this.numberOfDoors= numberOfDoors;}
   public void displayInfo() {
-    //
+    System.out.printf("Type->Car-> Price: $%.2f\tColor:%s\t\t\tDoors:%d\n", price, color, numberOfDoors);
   }
 }
