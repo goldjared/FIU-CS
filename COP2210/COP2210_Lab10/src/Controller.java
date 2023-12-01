@@ -31,7 +31,7 @@ public class Controller {
 
 
     ArrayList<Car> cars = new ArrayList<>();
-    ArrayList<Human> humans;
+    ArrayList<Human> humans = new ArrayList<>();
     ArrayList<Fruit> fruits;
     ArrayList<Bowl> bowls;
 
@@ -48,6 +48,16 @@ public class Controller {
         if(tokens[0].equals("Car")) {
           Car createdCar = new Car(tokens[1], tokens[2], tokens[3]);
           cars.add(createdCar);
+        } else if(tokens[0].equals("Human")) {
+          if(tokens.length > 2) {
+            Car createdCarForHuman = new Car(tokens[4], tokens[5], tokens[6]);
+            cars.add(createdCarForHuman);
+            Human createdHumanWithCar = new Human(createdCarForHuman, tokens[1]);
+            humans.add(createdHumanWithCar);
+          } else {
+            Human createdHuman = new Human(tokens[1]);
+            humans.add(createdHuman);
+          }
         }
       }//end while
     } catch (IOException e) {
@@ -60,6 +70,19 @@ public class Controller {
     System.out.println("=========================================");
     for(int i=0; i< cars.size(); i++) {
       cars.get(i).displayInfo();
+    }
+    System.out.println();
+    System.out.println("=========================================");
+    System.out.println("Human List");
+    System.out.println("=========================================");
+
+    for(Human human:humans) {
+      human.displayInfo();
+      // if human has a Car, call display on said Car
+      if(human.getCar() != null) {
+        System.out.print("\t\t");
+        human.getCar().displayInfo();
+      }
     }
 
   }
