@@ -4,7 +4,7 @@ public class Fruit {
 
   public Fruit(String type, String weight) {
     this.type=type;
-    this.weight=  Integer.parseInt(weight);
+    this.weight=  Double.parseDouble(weight);
   }
 
 
@@ -15,6 +15,6 @@ public class Fruit {
   public double getWeight() { return weight;}
   public void setWeight(double weight) {this.weight= weight;}
   public void displayInfo() {
-    //
+    System.out.printf("Type->Fruit-> Type: %s\t\t\tWeight:%.1f\n", type, weight);
   }
 }

@@ -32,7 +32,7 @@ public class Controller {
 
     ArrayList<Car> cars = new ArrayList<>();
     ArrayList<Human> humans = new ArrayList<>();
-    ArrayList<Fruit> fruits;
+    ArrayList<Fruit> fruits = new ArrayList<>();
     ArrayList<Bowl> bowls;
 
 
@@ -58,6 +58,9 @@ public class Controller {
             Human createdHuman = new Human(tokens[1]);
             humans.add(createdHuman);
           }
+        } else if(tokens[0].equals("Fruit")) {
+          Fruit createdFruit = new Fruit(tokens[1], tokens[2]);
+          fruits.add(createdFruit);
         }
       }//end while
     } catch (IOException e) {
@@ -68,8 +71,8 @@ public class Controller {
     System.out.println("=========================================");
     System.out.println("Car List");
     System.out.println("=========================================");
-    for(int i=0; i< cars.size(); i++) {
-      cars.get(i).displayInfo();
+    for(Car car:cars) {
+      car.displayInfo();
     }
     System.out.println();
     System.out.println("=========================================");
@@ -82,6 +85,14 @@ public class Controller {
       if(human.getCar() != null) {
         System.out.print("\t\t");
         human.getCar().displayInfo();
+      }
+      System.out.println();
+      System.out.println("=========================================");
+      System.out.println("Fruit List");
+      System.out.println("=========================================");
+
+      for(Fruit fruit:fruits) {
+        fruit.displayInfo();
       }
     }
 
