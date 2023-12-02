@@ -23,6 +23,6 @@ public class Bowl {
   public int getSize() { return size;}
   public void setSize(int size) {this.size = size;}
   public void displayInfo() {
-    //
+    System.out.printf("Type->Bowl-> Color: %-10s\t\tsize:%d\n", color, size);
   }
 }
