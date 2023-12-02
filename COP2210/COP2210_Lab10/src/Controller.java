@@ -138,6 +138,17 @@ public class Controller {
     System.out.print("\t\t\t");
     findOldestHumanWithCar(humans).getCar().displayInfo();
     System.out.println();
+
+    System.out.println("=========================================");
+    System.out.println("Bowl with the most fruit by weight");
+    System.out.println("=========================================");
+    Bowl heaviestBowl = bowlWithMostFruitWeight(bowls);
+    heaviestBowl.displayInfo();
+    for(int i = 0; i< heaviestBowl.getFruits().size(); i++) {
+      System.out.print("\t\t\t");
+      heaviestBowl.getFruits().get(i).displayInfo();
+    }
+    System.out.println();
   }
   public static Human findYoungestHumanWithoutCar(ArrayList<Human> humans) {
     Human lowestAgeHuman = humans.get(0);
@@ -157,6 +168,21 @@ public class Controller {
       }
     }
     return oldestAgeHuman;
+  }
+  public static Bowl bowlWithMostFruitWeight(ArrayList<Bowl> bowls) {
+    double heaviestBowlWeight = 0;
+    Bowl heaviestBowl = null;
+    for(Bowl bowl:bowls) {
+      double totalFruitWeight = 0;
+      for(int i = 0; i<bowl.getFruits().size();i++) {
+        totalFruitWeight += bowl.getFruits().get(i).getWeight();
+      }
+      if(totalFruitWeight > heaviestBowlWeight) {
+        heaviestBowlWeight = totalFruitWeight;
+        heaviestBowl = bowl;
+      }
+    }
+    return heaviestBowl;
   }
   public static void yourInfoHeader() {
     //
