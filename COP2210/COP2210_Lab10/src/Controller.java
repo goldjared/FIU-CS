@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Controller {
   public static void main(String[] args) {
@@ -33,7 +34,7 @@ public class Controller {
     ArrayList<Car> cars = new ArrayList<>();
     ArrayList<Human> humans = new ArrayList<>();
     ArrayList<Fruit> fruits = new ArrayList<>();
-    ArrayList<Bowl> bowls;
+    ArrayList<Bowl> bowls = new ArrayList<>();
 
 
     try {
@@ -61,6 +62,19 @@ public class Controller {
         } else if(tokens[0].equals("Fruit")) {
           Fruit createdFruit = new Fruit(tokens[1], tokens[2]);
           fruits.add(createdFruit);
+        } else if(tokens[0].equals("Bowl")) {
+          ArrayList<Fruit> tempFruitArr = new ArrayList<>();
+          for(int i = 0; i<tokens.length;i++) {
+            // check if token for bowl contain fruit contents
+            if(tokens[i].equals("Fruit")) {
+              Fruit createdBowlFruit = new Fruit(tokens[i+1], tokens[i+2]);
+              fruits.add(createdBowlFruit);
+              tempFruitArr.add(createdBowlFruit);
+              i+=1;
+            }
+          }
+          Bowl createdBowl = new Bowl(tempFruitArr, tokens[1], tokens[2]);
+          bowls.add(createdBowl);
         }
       }//end while
     } catch (IOException e) {
@@ -82,10 +96,11 @@ public class Controller {
     for(Human human:humans) {
       human.displayInfo();
       // if human has a Car, call display on said Car
-      if(human.getCar() != null) {
+      if (human.getCar() != null) {
         System.out.print("\t\t");
         human.getCar().displayInfo();
       }
+    }
       System.out.println();
       System.out.println("=========================================");
       System.out.println("Fruit List");
@@ -93,6 +108,20 @@ public class Controller {
 
       for(Fruit fruit:fruits) {
         fruit.displayInfo();
+      }
+
+    System.out.println();
+    System.out.println("=========================================");
+    System.out.println("Bowl List");
+    System.out.println("=========================================");
+
+    for(Bowl bowl:bowls) {
+      bowl.displayInfo();
+      if(bowl.getFruits() != null) {
+        for(int i = 0; i< bowl.getFruits().size(); i++) {
+          System.out.print("\t\t\t");
+          bowl.getFruits().get(i).displayInfo();
+        }
       }
     }
 
