@@ -124,7 +124,39 @@ public class Controller {
         }
       }
     }
+    System.out.println();
+    System.out.println("=========================================");
+    System.out.println("Youngest Human without Car");
+    System.out.println("=========================================");
+    findYoungestHumanWithoutCar(humans).displayInfo();
+    System.out.println();
 
+    System.out.println("=========================================");
+    System.out.println("Oldest Human with Car");
+    System.out.println("=========================================");
+    findOldestHumanWithCar(humans).displayInfo();
+    System.out.print("\t\t\t");
+    findOldestHumanWithCar(humans).getCar().displayInfo();
+    System.out.println();
+  }
+  public static Human findYoungestHumanWithoutCar(ArrayList<Human> humans) {
+    Human lowestAgeHuman = humans.get(0);
+    for(Human human:humans) {
+      if(human.getCar() == null) {
+        if(lowestAgeHuman.getAge() > human.getAge()) lowestAgeHuman = human;
+      }
+    }
+    return lowestAgeHuman;
+  }
+
+  public static Human findOldestHumanWithCar(ArrayList<Human> humans) {
+    Human oldestAgeHuman = humans.get(1);
+    for(Human human:humans) {
+      if(human.getCar() != null) {
+        if(oldestAgeHuman.getAge() < human.getAge()) oldestAgeHuman = human;
+      }
+    }
+    return oldestAgeHuman;
   }
   public static void yourInfoHeader() {
     //
