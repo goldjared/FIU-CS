@@ -14,9 +14,11 @@ public class Calculator {
 	public void subtract(double val) {
 		this.value -= val;
 	}
+	
 	public void multiply(double val) {
 		this.value *= val;
 	}
+	
 	public void divide(double val) {
 		this.value /= val;
 	}
@@ -32,7 +34,9 @@ public class Calculator {
 	public static void main(String[] args) {
 		Calculator calc = new Calculator();
 		Scanner keyboard = new Scanner(System.in);
+		System.out.print("Enter Input 1: ");
 		double num1 = keyboard.nextDouble();
+		System.out.print("Enter Input 2: ");
 		double num2 = keyboard.nextDouble();
 // 1. The initial value
 		System.out.println(calc.getValue());
