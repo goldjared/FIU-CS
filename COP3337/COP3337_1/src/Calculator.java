@@ -4,37 +4,37 @@ public class Calculator {
 
 private double value;
 
-// constructor, creates instance with initial value set to 0.0
+// Constructor method, sets member field value to 0.0
 public Calculator() {
 	this.value = 0.0;
 }
 
-// take double parameter and set instance value equal to itself added by val
+// Add parameter to member field value
 public void add(double val) {
 	this.value += val;
 }
 
-// take double parameter and set instance value equal to itself subtracted by val
+// Subtract parameter from member field value
 public void subtract(double val) {
 	this.value -= val;
 }
 
-// take double parameter and set instance value equal to itself multiplied by val
+// Multiply member field value by parameter
 public void multiply(double val) {
 	this.value *= val;
 }
 
-// take double parameter and set instance value equal to itself divided by val
+// Divide member field value by parameter
 public void divide(double val) {
 	this.value /= val;
 }
 
-// sets instance value to 0.0
+// Set member field value to 0.0
 public void clear() {
 	this.value = 0.0;
 }
 
-// returns the private field value associated with instance
+// Returns member field value
 public double getValue() {
 	return value;
 }
@@ -46,6 +46,7 @@ public static void main(String[] args) {
 	double num1 = keyboard.nextDouble();
 	System.out.print("Enter Input 2: ");
 	double num2 = keyboard.nextDouble();
+
 // 1. The initial value
 	System.out.println(calc.getValue());
 // 2. The value after adding num1
