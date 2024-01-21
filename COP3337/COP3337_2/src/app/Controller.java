@@ -1,13 +1,15 @@
 package app;
 
+// import PassengerTrain class from train package
 import train.PassengerTrain;
-
+// import Scanner from java util
 import java.util.Scanner;
 
 public class Controller {
 
 public static int getAsciiValue(char colLetter) {
-	// return ASCII value of letter, subtract A ASCII val from letter val to convert to 0 based scale of 26 numbers
+	// return ASCII value of letter, subtract A ASCII val from letter val to convert to 0 based scale of
+	// alphabet, e.g. A = 0, B = 1, ..., Z = 25
 	return (int) colLetter - 'A';
 }
 
@@ -42,37 +44,42 @@ public static void main(String[] args) throws Exception {
 	//	***UNCOMMENT LINES ABOVE
 	
 	Scanner sc = new Scanner(System.in);
-	// Loop runs so long as the train instance is not full, or 'Q' is pressed in input.
+	// 3. Loop runs so long as the train instance is not full, or 'Q' is pressed in input.
 	while (!train1.isTrainFull()) {
 		System.out.print("Enter seat row (1-5) and column (A-D) or 'Q' to quit (e.g. '3A'): ");
+		// Put scanner input into an array, splitting between each value in the input.
 		String[] scInput = sc.nextLine().split("");
 		
+		// Check for 'Q' input, exits program via break if so. Break ends the loop.
 		if (scInput[0].equals("Q")) {
 			System.out.println("'Q' Exiting program.");
 			break;
-		} else if (scInput.length > 2) {
+			// Check input validity via length is greater than 2,
+			// or via regex checking if the 1st input is not a digit
+			// if so, continue which exits while loop at this point, and loops again.
+		} else if (scInput.length > 2 || !scInput[0].matches("//d+")) {
 			System.out.println("Invalid input.");
 			System.out.println("------------------------------------------------");
 			continue;
 		}
 		
-		
-		// scanner input, parse and zero base (-1) the row, pass letter value through getAsciiValue method
+		// Scanner input, parse and zero base (-1) the row, pass letter value through getAsciiValue method
 		// which also zero bases and returns an integer.
 		int row = Integer.parseInt(scInput[0]) - 1;
 		int col = getAsciiValue(scInput[1].charAt(0));
-		// check if scanner input is valid, if not ends loop at this point and restarts
+		// Check if scanner input is valid, if not ends loop at this point and restarts
 		if (!isValid(row, col)) {
 			System.out.println("Invalid seat input.");
 			System.out.println("------------------------------------------------");
 			continue;
+		// Check if the seat available on train instance, if not ends loop at this point and restarts
 		} else if (!train1.isSeatAvailable(row, col)) {
 			System.out.println("Seat not available.");
 			System.out.println("------------------------------------------------");
 			continue;
 		}
 		
-		// the row and col are now integers, and zero based, they are ready to pass into the assignSeat method
+		// The row and col are now ints, sanitized and verified. They are ready to pass into the assignSeat method
 		
 		train1.assignSeat(row, col);
 		System.out.println("SUCCESS Assigned Seat: " + scInput[0] + scInput[1]);
