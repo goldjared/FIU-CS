@@ -22,6 +22,7 @@ public static void main(String[] args) throws Exception {
 	// 1. Create train instance
 	PassengerTrain train1 = new PassengerTrain();
 	// 2. Print base seat pattern of instance
+	System.out.println("------------------------------------------------");
 	train1.displaySeatPattern();
 	System.out.println("------------------------------------------------");
 	
@@ -57,7 +58,7 @@ public static void main(String[] args) throws Exception {
 			// Check input validity via length is greater than 2,
 			// or via regex checking if the 1st input is not a digit
 			// if so, continue which exits while loop at this point, and loops again.
-		} else if (scInput.length > 2 || !scInput[0].matches("//d+")) {
+		} else if (scInput.length > 2 || !scInput[0].matches("^\\d+$")) {
 			System.out.println("Invalid input.");
 			System.out.println("------------------------------------------------");
 			continue;
@@ -79,12 +80,12 @@ public static void main(String[] args) throws Exception {
 			continue;
 		}
 		
-		// The row and col are now ints, sanitized and verified. They are ready to pass into the assignSeat method
+		// The row and col are now ints, sanitized and available. They are ready to pass into the assignSeat method
 		
 		train1.assignSeat(row, col);
 		System.out.println("SUCCESS Assigned Seat: " + scInput[0] + scInput[1]);
 		System.out.println("------------------------------------------------");
-		
+		// display seat pattern after assigning a seat
 		train1.displaySeatPattern();
 		System.out.println("------------------------------------------------");
 	}
