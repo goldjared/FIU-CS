@@ -65,9 +65,11 @@ public static void main(String[] args) throws Exception {
 			continue;
 		}
 		
-		// 7. Clean scanner input by (-1) the row for zero base, pass letter value through getAsciiValue method
-		// which also zero bases and returns an integer.
+		// 7. Clean scanner input index [0] by (-1) the row value for a zero base,
+		// clean sc input index [1] pass letter value through getAsciiValue method
+		// which zero bases the col value and returns an integer.
 		int row = Integer.parseInt(scInput[0]) - 1;
+		// Passes the character value for the letter, which is [1] index in sc input
 		int col = getAsciiValue(scInput[1].charAt(0));
 		// 8. Check if scanner input is valid, if not ends loop at this point and restarts
 		if (!isValid(row, col)) {
@@ -82,6 +84,7 @@ public static void main(String[] args) throws Exception {
 		}
 		
 		// 10. The row and col are now ints, sanitized and available. Ready to pass into the assignSeat method
+		// for the instance.
 		
 		train1.assignSeat(row, col);
 		System.out.println("SUCCESS Assigned Seat: " + scInput[0] + scInput[1]);
