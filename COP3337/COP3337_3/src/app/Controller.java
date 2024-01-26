@@ -2,6 +2,7 @@ package app;
 
 import lib.Book;
 import lib.Library;
+import lib.LibraryMember;
 
 import java.util.Scanner;
 
@@ -80,10 +81,36 @@ public class Controller {
 		return new Book(title, creator, itemId, varyingStringVal, varyingIntVal);
 	}
 	
+	public static LibraryMember choice2() {
+		System.out.print("Enter name: ");
+		String name = sc.nextLine();
+		
+		System.out.print("Enter address: ");
+		String address = sc.nextLine();
+		
+		System.out.print("Enter contact: ");
+		String contact = sc.nextLine();
+		
+		// loop runs while the scanner does not have integer input, when it has integer input loop exits, and
+		// memberId is declared as scanner input.
+		System.out.print("Enter numerical member ID: ");
+		while (!sc.hasNextInt()) {
+			System.out.println("Invalid input.");
+			System.out.print("Enter numerical member ID: ");
+			sc.next();
+		}
+		int memberId = sc.nextInt();
+		// clearing the scanner buffer
+		sc.nextLine();
+		
+		return new LibraryMember(name, address, contact, memberId);
+	}
+	
 	
 	public static void main(String[] args) {
 		Library lib1 = new Library();
 		
+		displayCodes();
 		System.out.print("Enter choice ('1'-'6') ('6' to Quit): ");
 		
 		while (!sc.hasNextInt()) {
@@ -96,6 +123,8 @@ public class Controller {
 		if (choice == 1) {
 			Book book = choice1();
 			lib1.addItem(book);
+		} else if (choice == 2) {
+			LibraryMember member = choice2();
 		}
 		
 		
