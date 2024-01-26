@@ -1,17 +1,27 @@
 package lib;
 
 public class LibraryItem {
-	String title;
-	String creator;
-	int itemId;
-	boolean available;
+	private String title;
+	private String creator;
+ 	private int itemId;
+	private	boolean available;
 	
 	public void checkoutItem() {
-	
+		if(available) {
+			available = false;
+			System.out.println("Item '"+title+ "' checked out successfully.");
+		} else {
+			System.out.println("Item '"+title+ "' not available.");
+		}
 	}
 	
 	public void returnItem() {
-	
+		if(!available) {
+			available = true;
+			System.out.println("Item '"+title+ "' returned successfully.");
+		} else {
+			System.out.println("Item '"+title+ "' not accepted.");
+		}
 	}
 	
 	public boolean isAvailable() {
@@ -23,6 +33,6 @@ public class LibraryItem {
 	}
 	
 	public String toString() {
-	
+		return "Title: "+title+", Creator: "+creator+", itemID: " + getItemId()+", isAvailable: "+ isAvailable();
 	}
 }
