@@ -1,10 +1,17 @@
 package lib;
 
 public class LibraryItem {
-	private String title;
-	private String creator;
- 	private int itemId;
+	private final String title;
+	private final String creator;
+ 	private final int itemId;
 	private	boolean available;
+
+	public LibraryItem(String title, String creator, int itemId) {
+		this.title = title;
+		this.creator = creator;
+		this.itemId = itemId;
+		available = true;
+	}
 	
 	public void checkoutItem() {
 		if(available) {
