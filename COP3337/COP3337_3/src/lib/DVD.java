@@ -11,7 +11,7 @@ public class DVD extends LibraryItem {
 	}
 	
 	public String toString() {
-		return "Director: "+director+", Duration: "+duration;
+		return "Director: " + director + ", Duration: " + duration;
 	}
 	
 }

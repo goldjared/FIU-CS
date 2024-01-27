@@ -27,7 +27,9 @@ public class LibraryMember {
 		borrowedItems.remove(item);
 	}
 	
-	public int getMemberId() { return memberId; }
+	public int getMemberId() {
+		return memberId;
+	}
 	
 	public String toString() {
 		return "Name: " + name + ", Address: " + address +
@@ -35,5 +37,5 @@ public class LibraryMember {
 						", Borrowed Items: " + borrowedItems + ", Fines: " + fines;
 	}
 	
-
+	
 }

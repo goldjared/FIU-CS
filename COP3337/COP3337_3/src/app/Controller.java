@@ -76,7 +76,7 @@ public class Controller {
 		sc.nextLine();
 		
 		// return a Book or DVD object based on the specified input value
-		if(bOrD.equalsIgnoreCase("B")) {
+		if (bOrD.equalsIgnoreCase("B")) {
 			return new Book(title, creator, itemId, varyingStringVal, varyingIntVal);
 		} else {
 			return new DVD(title, creator, itemId, varyingStringVal, varyingIntVal);
@@ -132,7 +132,7 @@ public class Controller {
 		Library lib1 = new Library();
 		
 		boolean exitLoop = false;
-		while(!exitLoop) {
+		while (!exitLoop) {
 			System.out.println("----------------------------------");
 			displayCodes();
 			System.out.println("----------------------------------");
@@ -146,7 +146,7 @@ public class Controller {
 			int choice = sc.nextInt();
 			// when int input is out of bounds for the library inputs, the loop resets
 			// and displays valid options
-			if(choice > 6 || choice < 1) {
+			if (choice > 6 || choice < 1) {
 				System.out.println("Invalid input.");
 				continue;
 			}
@@ -168,25 +168,25 @@ public class Controller {
 				// get LibraryMember object from library instance, if the instance does
 				// not contain the ID, it will equal null. For null, the loop will reset
 				LibraryMember member = lib1.getMember(memberId);
-				if(member == null) {
-					System.out.println("Member ID '"+memberId+"' does not exist in this library.");
+				if (member == null) {
+					System.out.println("Member ID '" + memberId + "' does not exist in this library.");
 					continue;
 				}
 				// this section does the same as the above, except for itemId instead of memberId
 				int itemId = choice3("item");
 				
 				LibraryItem item = lib1.getItem(itemId);
-				if(item == null) {
-					System.out.println("Item ID '"+itemId+"' does not exist in this library.");
+				if (item == null) {
+					System.out.println("Item ID '" + itemId + "' does not exist in this library.");
 					continue;
 				}
-				if(item.isAvailable()) {
+				if (item.isAvailable()) {
 					member.borrowItem(item);
 					item.checkoutItem();
 				} else {
 					System.out.println("Item is not available to be borrowed.");
 				}
-
+				
 			} else if (choice == 4) {
 			
 			} else if (choice == 5) {
@@ -196,7 +196,6 @@ public class Controller {
 				System.out.println("Exiting program.");
 			}
 		}
-		
 		
 		
 	}

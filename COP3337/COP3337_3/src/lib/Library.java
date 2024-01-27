@@ -20,17 +20,19 @@ public class Library {
 	}
 	
 	public LibraryMember getMember(int memberId) {
-		for(LibraryMember mem : members) {
-			if(memberId == mem.getMemberId()) return mem;
+		for (LibraryMember mem : members) {
+			if (memberId == mem.getMemberId()) return mem;
 		}
 		return null;
 	}
-	public LibraryItem getItem (int itemId) {
-		for(LibraryItem item : items) {
-			if(itemId == item.getItemId()) return item;
+	
+	public LibraryItem getItem(int itemId) {
+		for (LibraryItem item : items) {
+			if (itemId == item.getItemId()) return item;
 		}
 		return null;
 	}
+	
 	public String toString() {
 		return "Library items: " + items + ", Library members: " + members;
 	}
