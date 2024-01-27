@@ -169,6 +169,7 @@ public class Controller {
 				// not contain the ID, it will equal null. For null, the loop will reset
 				LibraryMember member = lib1.getMember(memberId);
 				if (member == null) {
+					System.out.println("----------------------------------");
 					System.out.println("Member ID '" + memberId + "' does not exist in this library.");
 					continue;
 				}
@@ -177,11 +178,13 @@ public class Controller {
 				
 				LibraryItem item = lib1.getItem(itemId);
 				if (item == null) {
+					System.out.println("----------------------------------");
 					System.out.println("Item ID '" + itemId + "' does not exist in this library.");
 					continue;
 				}
 				if (item.isAvailable()) {
 					member.borrowItem(item);
+					System.out.println("----------------------------------");
 					item.checkoutItem();
 				} else {
 					System.out.println("Item is not available to be borrowed.");
