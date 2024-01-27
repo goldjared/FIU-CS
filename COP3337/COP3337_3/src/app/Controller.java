@@ -1,8 +1,6 @@
 package app;
 
-import lib.Book;
-import lib.Library;
-import lib.LibraryMember;
+import lib.*;
 
 import java.util.Scanner;
 
@@ -22,8 +20,7 @@ public class Controller {
 		
 	}
 	
-	// thinking pass an object to this, then it can call all the methods on said object?
-	public static Book choice1() {
+	public static LibraryItem choice1() {
 		System.out.print("Enter title: ");
 		String title = sc.nextLine();
 		
@@ -78,7 +75,12 @@ public class Controller {
 		// clearing the scanner buffer
 		sc.nextLine();
 		
-		return new Book(title, creator, itemId, varyingStringVal, varyingIntVal);
+		// return a Book or DVD object based on the specified input value
+		if(bOrD.equalsIgnoreCase("B")) {
+			return new Book(title, creator, itemId, varyingStringVal, varyingIntVal);
+		} else {
+			return new DVD(title, creator, itemId, varyingStringVal, varyingIntVal);
+		}
 	}
 	
 	public static LibraryMember choice2() {
@@ -93,10 +95,11 @@ public class Controller {
 		
 		// loop runs while the scanner does not have integer input, when it has integer input loop exits, and
 		// memberId is declared as scanner input.
-		System.out.print("Enter numerical member ID: ");
+		String memberIdPrompt = "Enter numerical member ID: ";
+		System.out.print(memberIdPrompt);
 		while (!sc.hasNextInt()) {
 			System.out.println("Invalid input.");
-			System.out.print("Enter numerical member ID: ");
+			System.out.print(memberIdPrompt);
 			sc.next();
 		}
 		int memberId = sc.nextInt();
@@ -106,26 +109,94 @@ public class Controller {
 		return new LibraryMember(name, address, contact, memberId);
 	}
 	
-	
-	public static void main(String[] args) {
-		Library lib1 = new Library();
-		
-		displayCodes();
-		System.out.print("Enter choice ('1'-'6') ('6' to Quit): ");
-		
+	public static int choice3(String promptAOrB) {
+		// loop runs while the scanner does not have integer input, when it has integer input loop exits, and
+		// memberId is declared as scanner input.
+		String prompt = promptAOrB.equals("member") ? "Enter numerical member ID: " : "Enter numerical item ID to borrow: ";
+		System.out.print(prompt);
 		while (!sc.hasNextInt()) {
 			System.out.println("Invalid input.");
-			System.out.print("Enter choice ('1'-'6') ('6' to Quit): ");
+			System.out.print(prompt);
 			sc.next();
 		}
-		int choice = sc.nextInt();
+		int scInputVal = sc.nextInt();
+		// clearing the scanner buffer
 		sc.nextLine();
-		if (choice == 1) {
-			Book book = choice1();
-			lib1.addItem(book);
-		} else if (choice == 2) {
-			LibraryMember member = choice2();
+		return scInputVal;
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		// 1. Create library instance
+		Library lib1 = new Library();
+		
+		boolean exitLoop = false;
+		while(!exitLoop) {
+			System.out.println("----------------------------------");
+			displayCodes();
+			System.out.println("----------------------------------");
+			System.out.print("Enter choice ('1'-'6') ('6' to Quit): ");
+			
+			while (!sc.hasNextInt()) {
+				System.out.println("Invalid input.");
+				System.out.print("Enter choice ('1'-'6') ('6' to Quit): ");
+				sc.next();
+			}
+			int choice = sc.nextInt();
+			// when int input is out of bounds for the library inputs, the loop resets
+			// and displays valid options
+			if(choice > 6 || choice < 1) {
+				System.out.println("Invalid input.");
+				continue;
+			}
+			// clearing the scanner buffer
+			sc.nextLine();
+			
+			if (choice == 1) {
+				// Object type since the choice1 method will return either Book or DVD object.
+				LibraryItem bookOrDvd = choice1();
+				// add LibraryItem instance to library instance
+				lib1.addItem(bookOrDvd);
+			} else if (choice == 2) {
+				LibraryMember member = choice2();
+				// add member instance to library
+				lib1.addMember(member);
+			} else if (choice == 3) {
+				// get scanner input for member id
+				int memberId = choice3("member");
+				// get LibraryMember object from library instance, if the instance does
+				// not contain the ID, it will equal null. For null, the loop will reset
+				LibraryMember member = lib1.getMember(memberId);
+				if(member == null) {
+					System.out.println("Member ID '"+memberId+"' does not exist in this library.");
+					continue;
+				}
+				// this section does the same as the above, except for itemId instead of memberId
+				int itemId = choice3("item");
+				
+				LibraryItem item = lib1.getItem(itemId);
+				if(item == null) {
+					System.out.println("Item ID '"+itemId+"' does not exist in this library.");
+					continue;
+				}
+				if(item.isAvailable()) {
+					member.borrowItem(item);
+					item.checkoutItem();
+				} else {
+					System.out.println("Item is not available to be borrowed.");
+				}
+
+			} else if (choice == 4) {
+			
+			} else if (choice == 5) {
+			
+			} else {
+				exitLoop = true;
+				System.out.println("Exiting program.");
+			}
 		}
+		
 		
 		
 	}
