@@ -1,7 +1,5 @@
 package lib;
 
-import java.util.Arrays;
-
 public class Library {
 	private LibraryItem[] items;
 	private int itemsLength;
@@ -22,22 +20,16 @@ public class Library {
 	
 	public void resizeLibArr() {
 		LibraryItem[] itemsCopy = items;
-		System.out.println("old array length b4 copy" + items.length);
 		itemsLength *= 2;
 		items = new LibraryItem[itemsLength];
-		System.out.println("new array length b4 copy" + items.length);
 		System.arraycopy(itemsCopy, 0, items, 0, itemsCopy.length);
-		System.out.println("new array length " + items.length);
 	}
 	
 	public void resizeMemArr() {
 		LibraryMember[] membersCopy = members;
-		System.out.println("old array length b4 copy" + members.length);
 		membersLength *= 2;
 		members = new LibraryMember[membersLength];
-		System.out.println("new array length b4 copy" + members.length);
 		System.arraycopy(membersCopy, 0, members, 0, membersCopy.length);
-		System.out.println("new array length " + members.length);
 	}
 	
 	public void addItem(LibraryItem item) {
@@ -45,7 +37,6 @@ public class Library {
 			resizeLibArr();
 		}
 		items[itemsCount] = item;
-		if (itemsCount == 2) System.out.println(items[0] + " X" + items[1] + "X " + items[2] + " X" + items[3]);
 		itemsCount++;
 	}
 	
@@ -74,7 +65,7 @@ public class Library {
 	}
 	
 	public String toString() {
-		return "Library items: " + Arrays.toString(items) + ", Library members: " + Arrays.toString(members);
+		return "Items: " + itemsCount + "; Members: " + membersCount;
 	}
 	
 }
