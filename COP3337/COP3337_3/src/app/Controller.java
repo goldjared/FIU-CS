@@ -20,12 +20,18 @@ public class Controller {
 		
 	}
 	
+	public static String getNonEmptyStringInput(String prompt) {
+		String string = "";
+		while(string.isEmpty()) {
+			System.out.print(prompt);
+			string = sc.nextLine();
+		}
+		return string;
+	}
+	
 	public static LibraryItem choice1() {
-		System.out.print("Enter title: ");
-		String title = sc.nextLine();
-		
-		System.out.print("Enter creator: ");
-		String creator = sc.nextLine();
+		String title = getNonEmptyStringInput("Enter title: ");
+		String creator = getNonEmptyStringInput("Enter creator: ");
 		
 		// loop runs while the scanner does not have integer input, when it has integer input loop exits, and
 		// itemId is declared as scanner input.
@@ -84,14 +90,9 @@ public class Controller {
 	}
 	
 	public static LibraryMember choice2() {
-		System.out.print("Enter name: ");
-		String name = sc.nextLine();
-		
-		System.out.print("Enter address: ");
-		String address = sc.nextLine();
-		
-		System.out.print("Enter contact: ");
-		String contact = sc.nextLine();
+		String name = getNonEmptyStringInput("Enter name: ");
+		String address = getNonEmptyStringInput("Enter address: ");
+		String contact = getNonEmptyStringInput("Enter contact: ");
 		
 		// loop runs while the scanner does not have integer input, when it has integer input loop exits, and
 		// memberId is declared as scanner input.
@@ -243,7 +244,8 @@ public class Controller {
 					System.out.println("Item is not checked out of library.");
 				}
 			} else if (choice == 5) {
-			
+				System.out.println("----------------------------------");
+				System.out.println("Library: "+ lib1.toString());
 			} else {
 				exitLoop = true;
 				System.out.println("Exiting program.");
