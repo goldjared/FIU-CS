@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Controller {
 	
-	static Scanner sc = new Scanner(System.in);
+	private static final Scanner sc = new Scanner(System.in);
 	
 	
 	public static void displayCodes() {
@@ -126,6 +126,22 @@ public class Controller {
 		
 	}
 	
+	public static int choice4(String promptAOrB) {
+		// loop runs while the scanner does not have integer input, when it has integer input loop exits, and
+		// memberId is declared as scanner input.
+		String prompt = promptAOrB.equals("member") ? "Enter numerical member ID: " : "Enter numerical item ID to return: ";
+		System.out.print(prompt);
+		while (!sc.hasNextInt()) {
+			System.out.println("Invalid input.");
+			System.out.print(prompt);
+			sc.next();
+		}
+		int scInputVal = sc.nextInt();
+		// clearing the scanner buffer
+		sc.nextLine();
+		return scInputVal;
+	}
+	
 	
 	public static void main(String[] args) {
 		// 1. Create library instance
@@ -187,11 +203,45 @@ public class Controller {
 					System.out.println("----------------------------------");
 					item.checkoutItem();
 				} else {
+					System.out.println("----------------------------------");
 					System.out.println("Item is not available to be borrowed.");
 				}
 				
 			} else if (choice == 4) {
-			
+				// get scanner input for member id
+				int memberId = choice4("member");
+				// get LibraryMember object from library instance, if the instance does
+				// not contain the ID, it will equal null. For null, the loop will reset
+				LibraryMember member = lib1.getMember(memberId);
+				if (member == null) {
+					System.out.println("----------------------------------");
+					System.out.println("Member ID '" + memberId + "' does not exist in this library.");
+					continue;
+				}
+				// this section does the same as the above, except for itemId instead of memberId
+				int itemId = choice4("item");
+				
+				LibraryItem item = lib1.getItem(itemId);
+				if (item == null) {
+					System.out.println("----------------------------------");
+					System.out.println("Item ID '" + itemId + "' has no record in this library.");
+					continue;
+				}
+				
+				int membersBorrowedItemIndex = member.getBorrowedItemIndex(item.getItemId());
+				if (membersBorrowedItemIndex < 0) {
+					System.out.println("----------------------------------");
+					System.out.println("Member does not have item ID '" + itemId + "' checked out.");
+					continue;
+				}
+				
+				if (!item.isAvailable()) {
+					member.returnItem(membersBorrowedItemIndex);
+					System.out.println("----------------------------------");
+					item.returnItem();
+				} else {
+					System.out.println("Item is not checked out of library.");
+				}
 			} else if (choice == 5) {
 			
 			} else {
