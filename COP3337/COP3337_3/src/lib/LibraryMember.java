@@ -1,17 +1,21 @@
 package lib;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
 public class LibraryMember {
 	String name;
 	String address;
 	String contact;
 	int memberId;
-	ArrayList<LibraryItem> borrowedItems;
+	LibraryItem[] borrowedItems;
+	int borrowedItemsLength;
+	int borrowedItemsCount;
 	double fines;
 	
 	public LibraryMember(String name, String address, String contact, int memberId) {
-		borrowedItems = new ArrayList<>();
+		borrowedItemsLength = 20;
+		borrowedItemsCount = 0;
+		borrowedItems = new LibraryItem[borrowedItemsLength];
 		this.name = name;
 		this.address = address;
 		this.contact = contact;
@@ -19,12 +23,35 @@ public class LibraryMember {
 		fines = 0;
 	}
 	
-	public void borrowItem(LibraryItem item) {
-		borrowedItems.add(item);
+	public void resizeBorrowedArr() {
+		LibraryItem[] borrowedCopy = borrowedItems;
+		borrowedItemsLength *= 2;
+		borrowedItems = new LibraryItem[borrowedItemsLength];
+		System.arraycopy(borrowedCopy, 0, borrowedItems, 0, borrowedCopy.length);
 	}
 	
-	public void returnItem(LibraryItem item) {
-		borrowedItems.remove(item);
+	public void borrowItem(LibraryItem item) {
+		if (borrowedItemsCount == borrowedItemsLength) {
+			resizeBorrowedArr();
+		}
+		borrowedItems[borrowedItemsCount] = item;
+		borrowedItemsCount++;
+	}
+	
+	public int getBorrowedItemIndex(int itemId) {
+		for (int i = 0; i < borrowedItemsCount; i++) {
+			if (borrowedItems[i].getItemId() == itemId) return i;
+		}
+		return -1;
+	}
+	
+	public void returnItem(int index) {
+		LibraryItem[] borrowedItemsCopy = new LibraryItem[borrowedItemsLength - 1];
+		System.arraycopy(borrowedItems, 0, borrowedItemsCopy, index, index);
+		System.arraycopy(borrowedItems, index + 1, borrowedItemsCopy, index, borrowedItemsLength - index - 1);
+		borrowedItems = borrowedItemsCopy;
+		borrowedItemsLength--;
+		borrowedItemsCount--;
 	}
 	
 	public int getMemberId() {
@@ -34,7 +61,7 @@ public class LibraryMember {
 	public String toString() {
 		return "Name: " + name + ", Address: " + address +
 						", Contact: " + contact + ", Member ID: " + memberId +
-						", Borrowed Items: " + borrowedItems + ", Fines: " + fines;
+						", Borrowed Items: " + Arrays.toString(borrowedItems) + ", Fines: " + fines;
 	}
 	
 	
