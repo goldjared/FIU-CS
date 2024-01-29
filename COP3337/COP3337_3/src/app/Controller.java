@@ -118,7 +118,8 @@ public class Controller {
 		// conditional to get prompt value depending on text input
 		String prompt = promptAOrB.equals("member") ? "Enter numerical member ID: " : "Enter numerical item ID to borrow: ";
 		// loop runs while the scanner does not have integer input, when it has integer input loop exits, and
-		// memberId is declared as scanner input.	System.out.print(prompt);
+		// memberId is declared as scanner input.
+		System.out.print(prompt);
 		while (!sc.hasNextInt()) {
 			System.out.println("Invalid input.");
 			System.out.print(prompt);
