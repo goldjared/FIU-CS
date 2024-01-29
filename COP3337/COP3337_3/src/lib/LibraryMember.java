@@ -12,6 +12,8 @@ public class LibraryMember {
 	int borrowedItemsCount;
 	double fines;
 	
+	// LibMember constructor, initializes array length to 20, and items count to 0.
+	// in order to keep track of when the array fills up.
 	public LibraryMember(String name, String address, String contact, int memberId) {
 		borrowedItemsLength = 20;
 		borrowedItemsCount = 0;
@@ -23,6 +25,8 @@ public class LibraryMember {
 		fines = 0;
 	}
 	
+	// creates copy of array, doubles length of class array length,
+	// initiates class array as new length, copies the copy array from start to end, into doubled array
 	public void resizeBorrowedArr() {
 		LibraryItem[] borrowedCopy = borrowedItems;
 		borrowedItemsLength *= 2;
@@ -38,10 +42,14 @@ public class LibraryMember {
 		borrowedItemsCount++;
 	}
 	
+	// searches borrowedItem array for itemId, returns arrays index location if item found
+	// else returns -1 for non-existing
 	public int getBorrowedItemIndex(int itemId) {
+		// search goes to itemsCount instead of length, since the length may contain null values
 		for (int i = 0; i < borrowedItemsCount; i++) {
 			if (borrowedItems[i].getItemId() == itemId) return i;
 		}
+		// return value will be -1 if the item does not exist in array
 		return -1;
 	}
 	

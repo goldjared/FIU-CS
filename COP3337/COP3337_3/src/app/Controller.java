@@ -259,7 +259,5 @@ public class Controller {
 				System.out.println("Exiting program.");
 			}
 		} // end while loop
-		
-		
 	}
 }

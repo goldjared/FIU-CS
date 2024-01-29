@@ -6,6 +6,7 @@ public class LibraryItem {
 	private final int itemId;
 	private boolean available;
 	
+	// item constructor, sets each item available boolean to true
 	public LibraryItem(String title, String creator, int itemId) {
 		this.title = title;
 		this.creator = creator;
@@ -13,6 +14,8 @@ public class LibraryItem {
 		available = true;
 	}
 	
+	// if item is available, change to false and print success.
+	// else the item is not available
 	public void checkoutItem() {
 		if (available) {
 			available = false;
@@ -22,6 +25,8 @@ public class LibraryItem {
 		}
 	}
 	
+	// if item is not available, sets as available to return item.
+	// else the return is not accepted.
 	public void returnItem() {
 		if (!available) {
 			available = true;
@@ -31,10 +36,12 @@ public class LibraryItem {
 		}
 	}
 	
+	// returns boolean available value
 	public boolean isAvailable() {
 		return available;
 	}
 	
+	// returns the itemId int value
 	public int getItemId() {
 		return itemId;
 	}
