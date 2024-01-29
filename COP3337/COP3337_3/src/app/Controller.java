@@ -5,10 +5,10 @@ import lib.*;
 import java.util.Scanner;
 
 public class Controller {
-	
+	// Scanner static member variable, utilized throughout class for user input
 	private static final Scanner sc = new Scanner(System.in);
 	
-	
+	// method to display library codes available
 	public static void displayCodes() {
 		System.out.println("Library Input Codes: ");
 		System.out.println("1. Add item");
@@ -20,9 +20,10 @@ public class Controller {
 		
 	}
 	
+	// loop runs until the scanner has string input, and that input cannot be blank. returns string input
 	public static String getNonEmptyStringInput(String prompt) {
 		String string = "";
-		while(string.isEmpty()) {
+		while (string.isEmpty()) {
 			System.out.print(prompt);
 			string = sc.nextLine();
 		}
@@ -30,6 +31,7 @@ public class Controller {
 	}
 	
 	public static LibraryItem choice1() {
+		// utilize method for get input values, preventing blank value
 		String title = getNonEmptyStringInput("Enter title: ");
 		String creator = getNonEmptyStringInput("Enter creator: ");
 		
@@ -44,7 +46,6 @@ public class Controller {
 		int itemId = sc.nextInt();
 		// clearing the scanner buffer
 		sc.nextLine();
-		
 		
 		String bOrD = null;
 		boolean isBOrD = false;
@@ -61,17 +62,19 @@ public class Controller {
 			}
 		} // end isNot bOrD loop
 		
-		
+		// conditional prints text based on letter input
 		if (bOrD.equalsIgnoreCase("B")) {
 			System.out.print("Enter genre: ");
 		} else {
 			System.out.print("Enter director: ");
 		}
+		// string value for above conditional text
 		String varyingStringVal = sc.nextLine();
 		
+		// conditional to get prompt value depending on text input
 		String bOrDPrompt = bOrD.equalsIgnoreCase("B") ? "Enter number of pages: " : "Enter DVD duration (minutes): ";
 		System.out.print(bOrDPrompt);
-		
+		// loop runs so long as the input is not an integer
 		while (!sc.hasNextInt()) {
 			System.out.println("Invalid input.");
 			System.out.print(bOrDPrompt);
@@ -90,6 +93,7 @@ public class Controller {
 	}
 	
 	public static LibraryMember choice2() {
+		// utilize method for get input values, preventing blank value
 		String name = getNonEmptyStringInput("Enter name: ");
 		String address = getNonEmptyStringInput("Enter address: ");
 		String contact = getNonEmptyStringInput("Enter contact: ");
@@ -111,10 +115,10 @@ public class Controller {
 	}
 	
 	public static int choice3(String promptAOrB) {
-		// loop runs while the scanner does not have integer input, when it has integer input loop exits, and
-		// memberId is declared as scanner input.
+		// conditional to get prompt value depending on text input
 		String prompt = promptAOrB.equals("member") ? "Enter numerical member ID: " : "Enter numerical item ID to borrow: ";
-		System.out.print(prompt);
+		// loop runs while the scanner does not have integer input, when it has integer input loop exits, and
+		// memberId is declared as scanner input.	System.out.print(prompt);
 		while (!sc.hasNextInt()) {
 			System.out.println("Invalid input.");
 			System.out.print(prompt);
@@ -124,14 +128,14 @@ public class Controller {
 		// clearing the scanner buffer
 		sc.nextLine();
 		return scInputVal;
-		
 	}
 	
 	public static int choice4(String promptAOrB) {
-		// loop runs while the scanner does not have integer input, when it has integer input loop exits, and
-		// memberId is declared as scanner input.
+		// conditional to get prompt value depending on text input
 		String prompt = promptAOrB.equals("member") ? "Enter numerical member ID: " : "Enter numerical item ID to return: ";
 		System.out.print(prompt);
+		// loop runs while the scanner does not have integer input, when it has integer input loop exits, and
+		// memberId is declared as scanner input.
 		while (!sc.hasNextInt()) {
 			System.out.println("Invalid input.");
 			System.out.print(prompt);
@@ -143,18 +147,18 @@ public class Controller {
 		return scInputVal;
 	}
 	
-	
 	public static void main(String[] args) {
-		// 1. Create library instance
+		//  Create library instance
 		Library lib1 = new Library();
-		
+		// 	boolean value for loop
 		boolean exitLoop = false;
+		// loop runs while boolean value is false. when user wants to exit, value changes to true
 		while (!exitLoop) {
 			System.out.println("----------------------------------");
 			displayCodes();
 			System.out.println("----------------------------------");
 			System.out.print("Enter choice ('1'-'6') ('6' to Quit): ");
-			
+			// while the scanner input is non integer, loop runs
 			while (!sc.hasNextInt()) {
 				System.out.println("Invalid input.");
 				System.out.print("Enter choice ('1'-'6') ('6' to Quit): ");
@@ -228,14 +232,15 @@ public class Controller {
 					System.out.println("Item ID '" + itemId + "' has no record in this library.");
 					continue;
 				}
-				
+				// gets the index location of the borrowed item from the member instance borrowed item array
 				int membersBorrowedItemIndex = member.getBorrowedItemIndex(item.getItemId());
+				// if value is less than 0, it means the item was not found
 				if (membersBorrowedItemIndex < 0) {
 					System.out.println("----------------------------------");
 					System.out.println("Member does not have item ID '" + itemId + "' checked out.");
 					continue;
 				}
-				
+				// if the item is not available in library, it can be returned.
 				if (!item.isAvailable()) {
 					member.returnItem(membersBorrowedItemIndex);
 					System.out.println("----------------------------------");
@@ -245,12 +250,14 @@ public class Controller {
 				}
 			} else if (choice == 5) {
 				System.out.println("----------------------------------");
-				System.out.println("Library: "+ lib1.toString());
+				// utilize instance toString method to output numerical contents of lib instance
+				System.out.println("Library: " + lib1.toString());
 			} else {
+				// user wants to exit program, change boolean to true which ends program loop.
 				exitLoop = true;
 				System.out.println("Exiting program.");
 			}
-		}
+		} // end while loop
 		
 		
 	}
