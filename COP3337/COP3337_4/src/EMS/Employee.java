@@ -60,6 +60,6 @@ public class Employee {
 	}
 	
 	public void addBonus() {
-		salary += 200;
+		setSalary(getSalary() + 200);
 	}
 }
