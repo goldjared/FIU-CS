@@ -2,12 +2,12 @@ package EMS;
 
 public class Employee {
 	private int employeeId;
-	private	String name;
-	private	String department;
-	private	int salary;
+	private String name;
+	private String department;
+	private double salary;
 	private String designation;
 	
-	public Employee(int employeeId, String name, String department, int salary, String designation) {
+	public Employee(int employeeId, String name, String department, double salary, String designation) {
 		this.employeeId = employeeId;
 		this.name = name;
 		this.department = department;
@@ -39,11 +39,11 @@ public class Employee {
 		this.department = department;
 	}
 	
-	public int getSalary() {
+	public double getSalary() {
 		return salary;
 	}
 	
-	public void setSalary(int salary) {
+	public void setSalary(double salary) {
 		this.salary = salary;
 	}
 	
@@ -59,7 +59,16 @@ public class Employee {
 		return this.designation.equals(designation);
 	}
 	
-	public void addBonus() {
-		setSalary(getSalary() + 200);
+	public double addBonus() {
+		return getSalary() + 200;
+	}
+	
+	public void display() {
+		System.out.printf("Employee ID: \t%s\n", getEmployeeId());
+		System.out.printf("Name: \t\t\t%s\n", getName());
+		System.out.printf("Department: \t%s\n", getDepartment());
+		System.out.printf("Salary: \t\t$%.2f\n", getSalary());
+		System.out.printf("Designation: \t%s\n", getDesignation());
+		System.out.println("-------------------------------");
 	}
 }

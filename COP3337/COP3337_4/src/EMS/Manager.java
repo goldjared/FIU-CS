@@ -1,12 +1,12 @@
 package EMS;
 
 public class Manager extends Employee {
-	public Manager(int employeeId, String name, String department, int salary, String designation) {
+	public Manager(int employeeId, String name, String department, double salary, String designation) {
 		super(employeeId, name, department, salary, designation);
 	}
 	
 	@Override
-	public void addBonus() {
-		setSalary(getSalary() + 300);
+	public double addBonus() {
+		return getSalary() + 300;
 	}
 }
