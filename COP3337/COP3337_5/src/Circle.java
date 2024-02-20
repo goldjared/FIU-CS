@@ -1,7 +1,7 @@
 public class Circle extends Shape implements  Resizeable {
 	private double radius;
 	
-	public Circle(String name, String color, int radius) {
+	public Circle(String name, String color, double radius) {
 		setColor(color);
 		setName(name);
 		this.radius = radius;
