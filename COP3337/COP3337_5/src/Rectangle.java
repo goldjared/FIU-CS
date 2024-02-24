@@ -1,3 +1,4 @@
+// class extends abstract class 'Shape' and implements the interface 'Resizeable'
 public class Rectangle extends Shape implements Resizeable {
 	private double length;
 	private double width;
@@ -9,6 +10,7 @@ public class Rectangle extends Shape implements Resizeable {
 		this.width = width;
 	}
 	
+	// getters and setters
 	public double getLength() {
 		return length;
 	}
@@ -25,16 +27,19 @@ public class Rectangle extends Shape implements Resizeable {
 		this.width = width;
 	}
 	
+	// using polymorphism to override the abstract method
 	@Override
 	double calculateArea() {
-		return width*length;
+		return width * length;
 	}
 	
+	// using polymorphism to override the abstract method
 	@Override
 	double calculatePerimeter() {
 		return 2 * (length + width);
 	}
 	
+	// following the implemented interface, create the resize method
 	@Override
 	public void resize(int percent) {
 		double percentDeci = (double) percent / 100;

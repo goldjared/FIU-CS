@@ -1,10 +1,11 @@
+// class extends abstract class 'Shape' and implements the interface 'Resizeable'
 public class Triangle extends Shape implements Resizeable {
 	private double length;
 	private double base;
 	private double side1;
 	private double side2;
 	
-	public Triangle(String color, String name, double side1, double side2, double base) {
+	public Triangle(String name, String color, double side1, double side2, double base) {
 		setColor(color);
 		setName(name);
 		this.length = Math.max(side1, side2);
@@ -13,6 +14,7 @@ public class Triangle extends Shape implements Resizeable {
 		this.side2 = side2;
 	}
 	
+	// getters and setters
 	public double getLength() {
 		return length;
 	}
@@ -45,6 +47,7 @@ public class Triangle extends Shape implements Resizeable {
 		this.side2 = side2;
 	}
 	
+	// following the implemented interface, create the resize method
 	public void resize(int percent) {
 		double percentDeci = (double) percent / 100;
 		base += percentDeci * base;
@@ -53,11 +56,13 @@ public class Triangle extends Shape implements Resizeable {
 		length = Math.max(side1, side2);
 	}
 	
+	// using polymorphism to override the abstract method
 	@Override
 	double calculateArea() {
 		return 0.5 * base * length;
 	}
 	
+	// using polymorphism to override the abstract method
 	@Override
 	double calculatePerimeter() {
 		return base + side1 + side2;
