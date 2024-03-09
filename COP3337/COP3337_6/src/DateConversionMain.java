@@ -8,7 +8,7 @@ public class DateConversionMain {
 		DateConversion converter = new DateConversion();
 		boolean validInput = false;
 		while (!validInput) {
-			System.out.println("Enter date in format MM/DD/YYYY: ");
+			System.out.print("Enter date in format MM/DD/YYYY: ");
 			String input = sc.nextLine();
 			
 			try {
@@ -19,6 +19,8 @@ public class DateConversionMain {
 				System.out.println(e.getMessage());
 			} catch (ArrayIndexOutOfBoundsException e) {
 				System.out.println("Invalid date format. Please use MM/DD/YYYY.");
+			} catch (NumberFormatException e) {
+				System.out.println("Invalid input value. Please use numerical values.");
 			}
 		}
 		
