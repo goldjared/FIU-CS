@@ -1,7 +1,5 @@
 import exceptions.*;
 
-import java.time.YearMonth;
-
 public class DateConversion {
 	
 	// Switch statement on month int val and corresponding month string
@@ -69,16 +67,17 @@ public class DateConversion {
 		for (String input : dateArr) {
 			try {
 				int num = Integer.parseInt(input);
-				// catch NumFormatException
+				// Catch and throw NumFormatException
 			} catch (NumberFormatException e) {
 				throw new NumberFormatException();
 			}
 		}
-		
+		// Parse inputs to int
 		int monthInt = Integer.parseInt(dateArr[0]);
 		int day = Integer.parseInt(dateArr[1]);
 		int year = Integer.parseInt(dateArr[2]);
 		
+		// Conditionals for custom exceptions being thrown
 		if (monthInt < 1 || monthInt > 12) throw new MonthException(monthInt);
 		if (year < 1000 || year > 3000) throw new YearException(year);
 		if (!isDayValidForMonthYear(monthInt, day, year)) throw new DateException(day, monthInt, year);
