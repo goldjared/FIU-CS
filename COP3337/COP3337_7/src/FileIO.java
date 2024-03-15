@@ -2,23 +2,24 @@ import java.io.*;
 
 public class FileIO {
 	public static void main(String[] args) throws IOException {
-		File f = null;
+		File mainFile = null;
 		BufferedReader reader = null;
+		BufferedWriter writer = null;
 		boolean fileFound = false;
 		while (!fileFound) {
 			System.out.println("Input name of file e.g. 'file.txt'");
 			reader = new BufferedReader(new InputStreamReader(System.in));
 			String fileName = reader.readLine();
 			
-			f = new File(fileName);
-			if (!f.exists()) {
+			mainFile = new File(fileName);
+			if (!mainFile.exists()) {
 				System.out.println("File name: '" + fileName + "' does not exist");
 				continue;
 			}
 			fileFound = true;
 		}
 		try {
-			BufferedWriter writer = new BufferedWriter(new FileWriter("temp.txt"));
+			writer = new BufferedWriter(new FileWriter("temp.txt"));
 			String line;
 			reader = new BufferedReader(new FileReader("file.txt"));
 			while ((line = reader.readLine()) != null) {
@@ -30,13 +31,28 @@ public class FileIO {
 						sentence = sentence + l;
 					} else {
 						System.out.println(sentence);
-						writer.write(sentence);
+						writer.write(sentence.trim());
 						writer.newLine();
 						sentence = "";
 					}
 				}
 				writer.close();
 			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		// Copying the contents of temp file to original file
+		try {
+			writer = new BufferedWriter(new FileWriter("file.txt"));
+			String line;
+			reader = new BufferedReader(new FileReader("temp.txt"));
+			while ((line = reader.readLine()) != null) {
+				writer.write(line);
+				writer.newLine();
+			}
+			
+			writer.close();
+			reader.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
