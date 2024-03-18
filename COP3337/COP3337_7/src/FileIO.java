@@ -70,7 +70,7 @@ public class FileIO {
 				writer.close();
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		// Copying the contents of temp file to original file
 		try {
@@ -83,17 +83,17 @@ public class FileIO {
 				writer.newLine();
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		} finally {
-			// Ensure resources are closed and temp file is deleted
+			// Ensure bufferedReader/Writer are closed and temp file is deleted
 			try {
 				assert writer != null;
 				writer.close();
 				reader.close();
-				tempF.delete();
+				tempF.deleteOnExit();
 				System.out.println("File: '" + fileName + "' edited successfully!");
 			} catch (IOException e) {
-				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 		}
 	}
