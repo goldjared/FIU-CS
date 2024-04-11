@@ -3,22 +3,29 @@ import java.util.Stack;
 
 public class ExpressionCheck {
 	public static boolean isBalanced(String userInput) {
+		// create stack instance
 		Stack<Character> stack = new Stack<>();
 		
+		// iterate through each char in charArray
 		for (char c : userInput.toCharArray()) {
+			// check for valid open values, push to stack
 			if (c == '(' || c == '{' || c == '[') {
 				stack.push(c);
+				// check for valid close values, if valid and empty stack return false
 			} else if (c == ')' || c == '}' || c == ']') {
 				if (stack.isEmpty()) return false;
 				
+				// pop off top of stack
 				char top = stack.pop();
+				// if the current close value does not map to top, return false
 				if (top == '(' && c != ')' ||
 								top == '{' && c != '}' ||
 								top == '[' && c != ']')
 					return false;
 			}
 		}
-		return true;
+		// if stack is empty the input is balanced
+		return stack.isEmpty();
 	}
 	
 	public static void main(String[] args) {
@@ -33,6 +40,7 @@ public class ExpressionCheck {
 		String userIn = sc.nextLine();
 		sc.close();
 		
+		// record if input is balanced, output result
 		String out = isBalanced(userIn) ? "Balanced" : "Not Balanced";
 		System.out.println(out);
 		
