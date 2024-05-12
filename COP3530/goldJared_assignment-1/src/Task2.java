@@ -20,6 +20,7 @@ public class Task2 {
 	public static void main(String[] args) {
 		int[] arr = {1, -1, 3, 2, -7, -5, 11, 6};
 		// int[] arr = {10, -3, 0, 4, 7, -2, 10};
+		// int[] arr = {3, -55, 6, -5, 5};
 		
 		System.out.println("Original array: " + Arrays.toString(arr));
 		int[] arranged = rearrangePositives(arr);

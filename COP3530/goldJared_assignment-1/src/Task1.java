@@ -21,6 +21,8 @@ public class Task1 {
 	
 	public static void main(String[] args) {
 		int[] arr = {6, 17, 4, 3, 5, 2};
+		// int[] arr = {3, 55, 22, 31, 5};
+		// int[] arr = {3, -55, 6, -5, 5};
 		List<Integer> ordered = findDoms(arr);
 		System.out.println("Original array: " + Arrays.toString(arr));
 		System.out.println("Dominant array: " + ordered.toString());
