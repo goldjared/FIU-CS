@@ -93,7 +93,6 @@ public class Task3 {
 				sc.next();
 			}
 			m = sc.nextInt();
-			
 			// grid initialization
 			grid = new char[n][m];
 			System.out.println("Enter n (" + n + ") grid lines of m (" + m + ") length in format E.g: 'abcde' ENTER, 'kitty' ENTER, ...:");
@@ -103,6 +102,7 @@ public class Task3 {
 			}
 		}
 		
+		sc.close();
 		int occurrences = sabaScan(grid);
 		printGrid(grid);
 		System.out.println("'saba' appears " + occurrences + " times");
