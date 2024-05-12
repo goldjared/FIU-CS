@@ -47,10 +47,21 @@ public class Task3 {
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		
 		System.out.println("Enter n rows and m cols where (1 <= 𝑛, 𝑚 <= 100)");
+		
 		System.out.print("Enter n (rows): ");
+		while (!sc.hasNextInt()) {
+			System.out.print("Enter n (rows): ");
+			sc.next();
+		}
 		int n = sc.nextInt();
+		
 		System.out.print("Enter m (cols): ");
+		while (!sc.hasNextInt()) {
+			System.out.print("Enter m (cols): ");
+			sc.next();
+		}
 		int m = sc.nextInt();
 		
 		// grid initialization
