@@ -1,4 +1,4 @@
-// LL uses generic to accept any types
+// LinkedList uses generic to accept any types
 public class LinkedList<T> {
 	
 	// Inner class Node, uses generic to accept any types
@@ -14,24 +14,24 @@ public class LinkedList<T> {
 	
 	// LinkedList member values
 	Node<T> head;
+	Node<T> tail;
 	
 	LinkedList() {
 		this.head = null;
+		this.tail = null;
 	}
 	
 	public void add(T data) {
 		Node<T> newNode = new Node<>(data);
+		
 		if (head == null) {
 			head = newNode;
-		} else {
-			Node<T> current = head;
-			while (current.next != null) {
-				current = current.next;
-			}
-			current.next = newNode;
+			tail = head;
 		}
+		tail.next = newNode;
+		tail = newNode;
 	}
-
+	
 	// Reverse the linked list by copying next node
 	public void reverse() {
 		Node<T> previous = null;
@@ -43,6 +43,7 @@ public class LinkedList<T> {
 			previous = current;
 			current = next;
 		}
+		tail = head;
 		head = previous;
 	}
 	
@@ -51,7 +52,7 @@ public class LinkedList<T> {
 		Node<T> current = head;
 		System.out.print("[");
 		while (current != null) {
-			if(current.next == null) System.out.print(current.data);
+			if (current.next == null) System.out.print(current.data);
 			else System.out.print(current.data + ", ");
 			
 			current = current.next;
@@ -64,7 +65,7 @@ public class LinkedList<T> {
 		// Test list 1, int
 		LinkedList<Integer> list = new LinkedList<>();
 		// Fill list with ints
-	  for(int i = 0; i < 9; i++) list.add(i);
+		for (int i = 0; i < 9; i++) list.add(i);
 		
 		System.out.println("Original list1:");
 		list.printList();
