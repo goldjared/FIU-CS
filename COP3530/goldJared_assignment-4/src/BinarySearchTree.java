@@ -1,5 +1,5 @@
 public class BinarySearchTree {
-  public static class Node {
+  private static class Node {
     int key;
     Node left;
     Node right;
@@ -57,18 +57,37 @@ public class BinarySearchTree {
     public static void main(String[] args) {
       BinarySearchTree t = new BinarySearchTree();
       t.Insert(20);
+      Node root = t.getRoot();
+
       t.Insert(15);
       t.Insert(25);
       t.Insert(13);
-      System.out.println("Root: " + t.getRoot().key);
-      System.out.println("Min: " + t.Min(t.getRoot()).key);
-      System.out.println("Max: " + t.Max(t.getRoot()).key);
+      t.Insert(9);
+      t.Insert(10);
+      t.Insert(11);
+      t.Insert(12);
+      System.out.println("--------------------------------");
+      System.out.println("Root: " + root.key);
+      System.out.println("Min: " + t.Min(root).key);
+      System.out.println("Max: " + t.Max(root).key);
+      System.out.println("--------------------------------");
       t.Insert(44);
       System.out.println("*Inserted 44, new max should be 44*");
-      System.out.println("Root: " + t.getRoot().key);
-      System.out.println("Min: " + t.Min(t.getRoot()).key);
-      System.out.println("Max: " + t.Max(t.getRoot()).key);
-
+      System.out.println("Root: " + root.key);
+      System.out.println("Min: " + t.Min(root).key);
+      System.out.println("Max: " + t.Max(root).key);
+      System.out.println("--------------------------------");
+      System.out.println("Search for existing value 11: " + t.Search(root, 11));
+      System.out.println("Search for non-existing value 110: " + t.Search(root, 110));
+      System.out.println("Search for existing value 13: " + t.Search(root, 13));
+      System.out.println("Search for existing value 9: " + t.Search(root, 9));
+      System.out.println("Search for non-existing value 30: " + t.Search(root, 30));
+      System.out.println("--------------------------------");
+      t.Insert(1);
+      System.out.println("*Inserted 1, new min should be 1*");
+      System.out.println("Root: " + root.key);
+      System.out.println("Min: " + t.Min(root).key);
+      System.out.println("Max: " + t.Max(root).key);
     }
 
 }
