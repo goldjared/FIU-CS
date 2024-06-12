@@ -47,6 +47,13 @@ public class BinarySearchTree {
       }
       return x;
     }
+
+    public Node Search(Node x, int k) {
+      if(x == null || x.key == k) return x;
+
+      if(k < x.key) return Search(x.left, k);
+      else return Search(x.right, k);
+    }
     public static void main(String[] args) {
       BinarySearchTree t = new BinarySearchTree();
       t.Insert(20);
@@ -56,6 +63,12 @@ public class BinarySearchTree {
       System.out.println("Root: " + t.getRoot().key);
       System.out.println("Min: " + t.Min(t.getRoot()).key);
       System.out.println("Max: " + t.Max(t.getRoot()).key);
+      t.Insert(44);
+      System.out.println("*Inserted 44, new max should be 44*");
+      System.out.println("Root: " + t.getRoot().key);
+      System.out.println("Min: " + t.Min(t.getRoot()).key);
+      System.out.println("Max: " + t.Max(t.getRoot()).key);
+
     }
 
 }
