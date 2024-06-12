@@ -13,6 +13,8 @@ public class BinarySearchTree {
 
     private static Node root;
 
+    public Node getRoot() { return root; }
+
     public void Insert(int key) {
       Node newNode = new Node(key);
       Node y = null;
@@ -32,11 +34,28 @@ public class BinarySearchTree {
       else y.right = newNode;
     }
 
+    public Node Max(Node x) {
+      while(x.right != null) {
+        x = x.right;
+      }
+      return x;
+    }
+
+    public Node Min(Node x) {
+      while (x.left != null) {
+        x = x.left;
+      }
+      return x;
+    }
     public static void main(String[] args) {
       BinarySearchTree t = new BinarySearchTree();
       t.Insert(20);
       t.Insert(15);
       t.Insert(25);
+      t.Insert(13);
+      System.out.println("Root: " + t.getRoot().key);
+      System.out.println("Min: " + t.Min(t.getRoot()).key);
+      System.out.println("Max: " + t.Max(t.getRoot()).key);
     }
-  }
+
 }
