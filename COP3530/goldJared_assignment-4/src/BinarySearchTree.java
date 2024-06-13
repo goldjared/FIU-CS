@@ -1,5 +1,5 @@
 public class BinarySearchTree {
-  private static class Node {
+  public static class Node {
     int key;
     Node left;
     Node right;
@@ -11,7 +11,7 @@ public class BinarySearchTree {
     }
   }
 
-    private static Node root;
+    private Node root;
 
     public Node getRoot() { return root; }
 
@@ -67,6 +67,7 @@ public class BinarySearchTree {
       t.Insert(11);
       t.Insert(12);
       System.out.println("--------------------------------");
+      System.out.println("[Expected Values] Root: 20, Min: 9, Max: 25");
       System.out.println("Root: " + root.key);
       System.out.println("Min: " + t.Min(root).key);
       System.out.println("Max: " + t.Max(root).key);
@@ -77,10 +78,10 @@ public class BinarySearchTree {
       System.out.println("Min: " + t.Min(root).key);
       System.out.println("Max: " + t.Max(root).key);
       System.out.println("--------------------------------");
-      System.out.println("Search for existing value 11: " + t.Search(root, 11));
+      System.out.println("Search for existing value 11: " + t.Search(root, 11).key);
       System.out.println("Search for non-existing value 110: " + t.Search(root, 110));
-      System.out.println("Search for existing value 13: " + t.Search(root, 13));
-      System.out.println("Search for existing value 9: " + t.Search(root, 9));
+      System.out.println("Search for existing value 13: " + t.Search(root, 13).key);
+      System.out.println("Search for existing value 9: " + t.Search(root, 9).key);
       System.out.println("Search for non-existing value 30: " + t.Search(root, 30));
       System.out.println("--------------------------------");
       t.Insert(1);
